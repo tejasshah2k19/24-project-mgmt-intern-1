@@ -1,0 +1,81 @@
+create project -> 
+
+	file -> new -> spring starter project -> 
+				name    : projectTitle 
+				type    : maven 
+				group   : projectTitle	
+				artifact: projectTitle
+				description : projectTitle 
+				package : com 
+				 
+				 
+ 	in dependencies -> select -> spring web , spring boot devtools 
+ 
+ 
+ we will use project explorer 
+ 	if project explorer is not visible on left pane then->	
+ 			how to open project explorer? 
+ 				click on window menu -> show view -> other -> type 
+ 							project -> select project explorer 	
+------------------------------------------------------------------------ 	
+help -> eclipse marketplace -> popular 
+				-> eclipse enterprise java and web developer tools 
+						-> install 
+----------------------------------------------------------------------							
+ spring boot-> 
+ 		src -> main -> resources -> application.properties
+ 		
+ 		server port -> 8080 
+ 		
+ 		
+ 		jsp -> 1) lib => tomcat embeded jasper 
+ 			   2) configuration => application.properties 
+ 			   		create folder inside main folder ->
+ 			   						webapp/WEB-INF/views
+ 			    	now put below 2 lines in application.properties->
+ 			    	spring.mvc.view.prefix=WEB-INF/views/
+					spring.mvc.view.suffix=.jsp
+-------------------------------------------------------------------------			    	
+
+create folder arth inside com folder 
+
+create folder controller inside arth 
+
+create SessionController in controller folder 
+
+	how to create controller ? 
+		create class inside controller folder 
+		add @Controller annotation on the class 
+		
+how to create a method that open jsp 
+	inside controller create a method , 
+	we want to open Welcome.jsp 
+			1) create Welcome.jsp inside views folder
+			2) create method in controller with Annotation
+			 
+					@Getmapping("/welcome")
+					public String welcome() {
+						return "Welcome";
+					}
+
+how to run ?
+		right click on project ->run as -> spring boot app -> 	
+				once server started message display on console 
+				open web browser and type http://localhost:9999/welcome 
+				
+				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

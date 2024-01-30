@@ -64,13 +64,34 @@ how to run ?
 				open web browser and type http://localhost:9999/welcome 
 				
 				
+---------------------------------------------------------------
+file -> new -> spring starter => 
+						1) spring web 
+						2) devtools 
+						3) tomcat embeded jasper 
+						
+						application.properties 
+						server.port=9999
+						
+jsp -> views 
 
 
+controller -> com->arth->controller->
+					class -> @Controller 
+					 
+					 	@GetMapping("login")   // url 
+						public String login(){
+							return "Login";   // jsp 
+						} 
 
+------------------------------------------------------------------
 
+how to create getters and setters? 
 
-
-
+class -> inside the class -> right click -> source -> getters and setters->
+			select all -> finish 
+			
+-------------------------------------------------------------------
 
 
 

@@ -1,0 +1,48 @@
+MysqL -> 
+
+	command line -> 
+			
+			SQL 
+			
+			
+			
+start -> mysql commnad -> mysql command line client -> enter password -> 
+
+
+
+
+# create database 
+	create database projectmgmt;
+	
+# how to list all databases ? 
+		show databases; 
+		
+# how to select database? 
+	use  projectmgmt; 
+	 
+# how to create table ? 
+	create table role(
+		roleId integer primary key auto_increment,
+		roleName varchar(20)
+	);
+	
+# how to list all tables from database? 
+	show tables; 
+	
+#how to check schema / columns / definition of a table 
+	describe role;
+	desc role; 
+	
+#how add record /insert data into table.
+	insert role ( roleName ) values ('admin');	
+	
+# list all the records from the role table ? 
+	select * from role; 	
+	
+	
+	
+	
+	
+	
+	 
+	

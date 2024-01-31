@@ -92,6 +92,48 @@ class -> inside the class -> right click -> source -> getters and setters->
 			select all -> finish 
 			
 -------------------------------------------------------------------
+users 
+
+role 
+	roleName
+	 
+	
+admin , pm , developer , tester  
+
+---------------------------------------------------------------
+computer -> database -> MySQL 
+
+--------------------------------------------------------------
+
+
+project -> right click -> spring -> add starters ->	
+			1) mysql driver
+			2) spring data jpa 
+			
+			finish 
+			
+			
+configuration -> 
+				1) database
+						url , userName , password  
+				2) hibernate 			
+						4 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

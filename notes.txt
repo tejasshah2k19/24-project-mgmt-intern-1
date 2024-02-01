@@ -142,7 +142,23 @@ create table?
 
 ---------------------------------------------------------------------------
 hibernate -> class { entity } -> table 
+---------------------------------------------------------------------------
 
+
+bean vs entity 
+
+entity -> class -> table 
+bean -> class -> no table 
+
+data -> database : table -> entity 
+data -> temp -> bean 
+
+
+user input ->signup -> UserEntity 
+user input ->login ->  LoginBean/UserBean 
+
+
+------------------------------------------------------------------------ 
 
 
 

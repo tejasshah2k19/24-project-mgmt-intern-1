@@ -37,7 +37,59 @@ start -> mysql commnad -> mysql command line client -> enter password ->
 	insert role ( roleName ) values ('admin');	
 	
 # list all the records from the role table ? 
-	select * from role; 	
+	select * from role; 
+	
+# list roleName from role 
+	select roleName from role; 
+
+#sample data 
+
+roleId	roleName
+1		x
+2		admin
+3		hr
+4		y
+
+#remove record(s) from table 
+	delete from role; // delete all records from table 
+
+	--where 
+	delete from role where roleId = 1; 
+	delete from role where roldId in (1,4); 
+	
+roleId	roleName
+2		admin
+3		hr
+	
+# how to modify existing record - column 
+	update role set roleName = 'ADMIN' where roleId = 2; 
+	update role set roleName = 'HR' where roleId = 3; 
+	
+#CRUD - 75% 
+  
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
 	
 	
 	

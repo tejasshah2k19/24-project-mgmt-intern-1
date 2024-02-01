@@ -104,7 +104,7 @@ admin , pm , developer , tester
 computer -> database -> MySQL 
 
 --------------------------------------------------------------
-
+how to get db and hibernate jar in project ! 
 
 project -> right click -> spring -> add starters ->	
 			1) mysql driver
@@ -113,11 +113,65 @@ project -> right click -> spring -> add starters ->
 			finish 
 			
 			
-configuration -> 
+configuration -> application.properties 
 				1) database
 						url , userName , password  
 				2) hibernate 			
 						4 
+						dialect 
+						ddl-auto 
+						show-sql 
+						format_sql
+						
+---------------------------------------------------------------------
+
+hibernate -> framework -> database -> 
+
+
+class -> Role -> roleId,  roleName -> hibernate => create table
+
+object -> roleId=1
+		  roleNAme=ADMIN   -> obj.save()  => insert into
+		   
+		  
+
+ORM -> Object Relational Mapping  		     
+
+
+create table? 
+
+---------------------------------------------------------------------------
+hibernate -> class { entity } -> table 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+						 
 
 
 

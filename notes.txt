@@ -178,7 +178,9 @@ every day ->
 	git push 
 	
 
-
+	1) login into github 
+	2) create repo 
+	
 
 
 

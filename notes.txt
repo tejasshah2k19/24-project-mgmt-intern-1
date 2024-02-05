@@ -166,8 +166,17 @@ project -> right click -> properties -> java build path
 ------------------------------------------------------------------------
 
 
-
-
+git 
+	git init 
+	git remote add 
+	git add 
+	git commit 
+	git push 
+	
+every day ->
+	git commit 
+	git push 
+	
 
 
 

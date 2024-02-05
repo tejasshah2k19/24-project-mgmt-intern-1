@@ -37,6 +37,24 @@
 git status -> status ! 
 
 
+git add src pom.xml 
+
+git commit -m "init" src pom.xml  
+
+		or 
+		
+git commit -m "init"  .
+
+git push origin master 
+
+
+
+
+
+ 
+
+
+
 		
 		
 		

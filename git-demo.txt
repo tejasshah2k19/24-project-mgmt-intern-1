@@ -1,0 +1,54 @@
+		project mgmt												
+														
+														
+			github.com											
+			remote repo											
+									git - tools					
+														
+									coflict					
+	local repo					local repo								
+	india					usa								
+	Mr B					Mr A								
+	Acontroller					Acontroller								
+	Bcontroller													
+	Ccontroller											1 local repo		
+												2 remote repo		
+		upload	push									3 local  - remote - map - connect		
+		download	pull									4  push - pull		
+														
+												github.com	signup	login
+												git tool	install	
+														
+														
+-----------------------------------------													
+1) github.com signup - loging
+2) install git 
+
+
+1) local repo  -> git init 
+2) remote repo -> 
+	github.com -> new -> repository -> give name -> finish 
+3) connect local and remote -> 
+		git remote add origin https://github.com/tejasshah2k19/24-project-mgmt-intern-1.git
+		
+		
+		
+		
+git status -> status ! 
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		

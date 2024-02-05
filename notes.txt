@@ -159,8 +159,11 @@ user input ->login ->  LoginBean/UserBean
 
 
 ------------------------------------------------------------------------ 
+url error !!! 
 
-
+project -> right click -> properties -> java build path 
+		-> source -> resource -> excluded -> remove -> apply and close 
+------------------------------------------------------------------------
 
 
 

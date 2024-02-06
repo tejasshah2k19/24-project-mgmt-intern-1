@@ -170,7 +170,7 @@ git
 	git init 
 	git remote add 
 	git add 
-	git commit 
+	git commit -m ""
 	git push 
 	
 every day ->
@@ -181,6 +181,10 @@ every day ->
 	1) login into github 
 	2) create repo 
 	
+
+ 
+
+
 
 
 

@@ -33,6 +33,7 @@ public class SessionController {
 		System.out.println(user.getPassword());
 		// validation
 		// database save
+		
 
 		System.out.println("SaveUser");
 		return "Home";

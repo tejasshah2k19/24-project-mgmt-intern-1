@@ -35,9 +35,9 @@ public class RoleController {
 
 	@GetMapping("/listrole")
 	public String listRole(Model model) {
-		List<RoleEntity> roles =   roleRepo.findAll();//select * from roles 
-		
-		model.addAttribute("r",roles);
+		List<RoleEntity> listRole =   roleRepo.findAll();//select * from roles 
+		System.out.println("ListRole :: from controller");
+		model.addAttribute("r",listRole);
 		return "ListRole";//jsp 
 	}
 

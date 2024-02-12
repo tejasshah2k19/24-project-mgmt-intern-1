@@ -24,8 +24,8 @@ public class SessionController {
 		return "Login";
 	}
 
-	@PostMapping("/saveuser")
-	public String saveUser(UserBean user) {
+	@PostMapping("/signup")
+	public String addUser(UserBean user) {
 		// read
 		System.out.println(user.getFirstName());
 		System.out.println(user.getLastName());

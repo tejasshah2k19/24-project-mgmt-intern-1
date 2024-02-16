@@ -31,6 +31,7 @@ public class UserController {
 
 	@PostMapping("/saveuser")
 	public String saveUser(UserEntity user) {
+		 
 		userRepo.save(user);// insert
 
 		return "redirect:/listuser";

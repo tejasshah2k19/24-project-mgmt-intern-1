@@ -3,22 +3,195 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Signup</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>AdminLTE 3 | Registration Page</title>
+<!-- Tell the browser to be responsive to screen width -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Font Awesome -->
+<link rel="stylesheet"
+	href="../../plugins/fontawesome-free/css/all.min.css">
+<!-- Ionicons -->
+<link rel="stylesheet"
+	href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+<!-- icheck bootstrap -->
+<link rel="stylesheet"
+	href="../../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+<!-- Theme style -->
+<link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+<!-- Google Font: Source Sans Pro -->
+<link
+	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700"
+	rel="stylesheet">
 </head>
-<body>
-	<h2>Signup</h2>
+<body class="hold-transition register-page">
+	<div class="register-box">
+		<div class="register-logo">
+			<a href="../../index2.html"><b>Admin</b>LTE</a>
+		</div>
+
+		<div class="card">
+			<div class="card-body register-card-body">
+				<p class="login-box-msg">Register a new membership</p>
+
+				<form action="signup" method="post">
+					<div class="input-group mb-3">
+						<input type="text" class="form-control" placeholder="First name"
+							name="firstName">
+						<div class="input-group-append">
+							<div class="input-group-text">
+								<span class="fas fa-user"></span>
+							</div>
+						</div>
+					</div>
+
+					<div class="input-group mb-3">
+						<input type="text" class="form-control" placeholder="Last name"
+							name="lastName">
+						<div class="input-group-append">
+							<div class="input-group-text">
+								<span class="fas fa-user"></span>
+							</div>
+						</div>
+					</div>
 
 
-	<form action="saveuser"  method="post" >
-		FirstName : <input type="text" name="firstName"  placeholder="Enter FirstName"/><Br><br> 
-		LastName : <input type="text" name="lastName"/><Br><br>
-		Email :<input type="text" name="email"/><Br><br>
-		Password : <input type="password" name="password"/><Br><br>
-		
-		<input type="submit"  value="SignUP"/>
-	</form>
+					<div class="input-group mb-3">
+						Gender : Male &nbsp; <input type="radio" value="male"
+							name="gender"> &nbsp;&nbsp; Female &nbsp;<input
+							type="radio" value="female" name="gender" checked="checked" />
+					</div>
 
-	<a href="login">Login</a>
+
+
+					<div class="input-group mb-3">
+						<input type="email" class="form-control" placeholder="Email"
+							name="email">
+						<div class="input-group-append">
+							<div class="input-group-text">
+								<span class="fas fa-envelope"></span>
+							</div>
+						</div>
+					</div>
+					<div class="input-group mb-3">
+						<input type="password" class="form-control" placeholder="Password"
+							name="password">
+						<div class="input-group-append">
+							<div class="input-group-text">
+								<span class="fas fa-lock"></span>
+							</div>
+						</div>
+					</div>
+
+					<div class="input-group mb-3">
+						<input type="password" class="form-control"
+							placeholder="Retype password">
+						<div class="input-group-append">
+							<div class="input-group-text">
+								<span class="fas fa-lock"></span>
+							</div>
+						</div>
+					</div>
+
+
+
+
+					<div class="input-group mb-3">
+						<input type="text" class="form-control"
+							placeholder="Contact number" name="contactNum">
+						<div class="input-group-append">
+							<div class="input-group-text">
+								<span class="fas fa-phone"></span>
+							</div>
+						</div>
+					</div>
+
+					<div class="input-group mb-3">
+						<input type="date" class="form-control"
+							placeholder="Date of Birth" name="dateOfBirth">
+						<div class="input-group-append">
+							<div class="input-group-text">
+								<span class="fas fa-calendar"></span>
+							</div>
+						</div>
+					</div>
+
+
+
+					<div class="input-group mb-3">
+						<textarea rows="5" class="form-control" cols="35"
+							placeholder="Address" name="address"></textarea>
+						<div class="input-group-append">
+							<div class="input-group-text">
+								<span class="fas fa-map-marker"></span>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="input-group mb-3">
+						<select name="state" class="form-control">
+							<option value="-1">---Please Select State----</option>
+							<option value="gj">Gujarat</option>
+							<option value="mh">Maha</option>
+							<option value="up">UP</option>
+						</select>
+						<div class="input-group-append">
+							<div class="input-group-text">
+								<span class="fas fa-building"></span>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="input-group mb-3">
+						<select name="city" class="form-control">
+							<option value="-1">----Please Select City----</option>
+							<option value="ahmedabad">Ahmedabad</option>
+							<option value="surat">Surat</option>
+							<option value="mumbai">Mumbai</option>
+							<option value="ayodhya">Ayodhya</option>
+							<option value="mahesana">GJ2</option>
+						</select>
+						<div class="input-group-append">
+							<div class="input-group-text">
+								<span class="fas fa-building"></span>
+							</div>
+						</div>
+					</div>
+
+
+
+					<div class="row">
+
+						<!-- /.col -->
+						<div class="col-4">
+							<button type="submit" class="btn btn-primary btn-block">Register</button>
+						</div>
+						<div class="col-4">
+							<a href="#" class="btn btn-block btn-danger"> Cancel </a>
+						</div>
+
+						<!-- /.col -->
+					</div>
+				</form>
+
+
+
+				<a href="login" class="text-center">I already have a membership</a>
+			</div>
+			<!-- /.form-box -->
+		</div>
+		<!-- /.card -->
+	</div>
+	<!-- /.register-box -->
+
+	<!-- jQuery -->
+	<script src="../../plugins/jquery/jquery.min.js"></script>
+	<!-- Bootstrap 4 -->
+	<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<!-- AdminLTE App -->
+	<script src="../../dist/js/adminlte.min.js"></script>
 </body>
 </html>

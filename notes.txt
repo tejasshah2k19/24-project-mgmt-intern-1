@@ -405,12 +405,37 @@ lib -> pom.xml
 		
 							
 
+-----------------------------------------
+
+bootstrap [ correct ] 
+
+material  [ wrong ] 
+
+angular-react [ wrong ] 
 
 
-						 
+what pages we need in our template ! 
 
+	dashbord 
+	Signup 
+	Login
+	List page - table - if datatable best 					 
+	chart 
+	
+once you download your template , you must open it using 
+	index.html 
+	
+------------------------------------------
+login -> 
 
-
+	@GetMapping -> login 
+			jsp open 
+			
+			jsp submlit -> authenticate 
+			
+			
+	@PostMapping -> authenticate (UserEntity user) 
+	
 
 
 

@@ -71,7 +71,17 @@ roleId	roleName
 	
 	
 	
-	
+# x@x.com  xyz 
+
+select * from users where email = "" and password = "" 
+
+
+select * from users where firstName = "" 
+
+select * from users where firstName = ""  and lastName = "" 
+
+ 
+
 	
 	
 	

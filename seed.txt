@@ -1,0 +1,17 @@
+
+
+
+insert into roles (role_name) values ('Admin');
+insert into roles (role_name) values ('ProjectManager');
+insert into roles (role_name) values ('Developer');
+
+
+insert 
+    into
+        users
+        (address, city, contact_num, date_of_birth, email, first_name, gender, last_name, otp, password, role_id, state) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        
+        
+ 

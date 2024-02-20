@@ -18,5 +18,6 @@ public interface UserRepository extends JpaRepository<UserEntity, Integer> {
 
 	List<UserEntity> findByGender(String gender);
 
- 
+	UserEntity findByEmail(String email);
+	
 }

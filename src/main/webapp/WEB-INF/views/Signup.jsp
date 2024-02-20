@@ -77,16 +77,18 @@
 					<div class="input-group mb-3">
 						<input type="password" class="form-control" placeholder="Password"
 							name="password">
+							
 						<div class="input-group-append">
 							<div class="input-group-text">
 								<span class="fas fa-lock"></span>
 							</div>
 						</div>
+						<span style="color: red;">${passwordError}</span>
 					</div>
 
 					<div class="input-group mb-3">
 						<input type="password" class="form-control"
-							placeholder="Retype password">
+							placeholder="Retype password" name="confirmPassword">
 						<div class="input-group-append">
 							<div class="input-group-text">
 								<span class="fas fa-lock"></span>

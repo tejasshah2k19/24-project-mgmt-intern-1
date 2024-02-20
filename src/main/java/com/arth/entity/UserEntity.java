@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 
 @Entity
 @Table(name = "users")
@@ -16,6 +17,8 @@ public class UserEntity {
 	private String lastName;
 	private String email;
 	private String password;
+	@Transient//do not create column in table - do not save this data in database 
+	private String confirmPassword;
 	private String gender;
 	private String contactNum;
 	private String dateOfBirth;
@@ -129,4 +132,12 @@ public class UserEntity {
 		this.roleId = roleId;
 	}
 
+	public String getConfirmPassword() {
+		return confirmPassword;
+	}
+
+	public void setConfirmPassword(String confirmPassword) {
+		this.confirmPassword = confirmPassword;
+	}
+	
 }

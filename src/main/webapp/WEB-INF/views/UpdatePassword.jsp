@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+ <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
@@ -33,13 +33,11 @@
 
 		<div class="card">
 			<div class="card-body register-card-body">
-				<p class="login-box-msg">Sign in to start your session
+				<p class="login-box-msg">Update Your Password
 </p>	
 
 				<span style="color: red;">${error}</span>
-				<span style="color: green;">${msg}</span>
-				
-				<form action="authenticate" method="post">
+				<form action="updatepassword" method="post">
 					 
  
 
@@ -53,6 +51,19 @@
 							</div>
 						</div>
 					</div>
+					
+					
+					<div class="input-group mb-3">
+						<input type="text" class="form-control" placeholder="OTP"
+							name="otp">
+						<div class="input-group-append">
+							<div class="input-group-text">
+								<span class="fas fa-lock"></span>
+							</div>
+						</div>
+					</div>
+					
+					
 					<div class="input-group mb-3">
 						<input type="password" class="form-control" placeholder="Password"
 							name="password">
@@ -63,6 +74,17 @@
 						</div>
 					</div>
 
+					
+					
+					<div class="input-group mb-3">
+						<input type="password" class="form-control" placeholder="Re-enter Password"
+							name="confirmPassword">
+						<div class="input-group-append">
+							<div class="input-group-text">
+								<span class="fas fa-lock"></span>
+							</div>
+						</div>
+					</div>
 					 
 
 
@@ -77,10 +99,10 @@
 
 						<!-- /.col -->
 						<div class="col-4">
-							<button type="submit" class="btn btn-primary btn-block">Login</button>
+							<button type="submit" class="btn btn-primary btn-block">Update</button>
 						</div>
 						<div class="col-4">
-							<a href="#" class="btn btn-block btn-danger"> Cancel </a>
+							<a href="login" class="btn btn-block btn-danger"> Cancel </a>
 						</div>
 
 						<!-- /.col -->
@@ -89,10 +111,10 @@
 
 
 	<br>
-				<a href="signup" class="text-center">Register</a>
+				<!-- <a href="signup" class="text-center">Register</a>
 				<br>
 				<a href="forgetpassword" class="text-center">ForgetPassword?</a>
-				
+				 -->
 			</div>
 			<!-- /.form-box -->
 		</div>
@@ -108,3 +130,4 @@
 	<script src="../../dist/js/adminlte.min.js"></script>
 </body>
 </html>
+ 

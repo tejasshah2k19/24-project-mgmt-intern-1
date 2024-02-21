@@ -33,13 +33,11 @@
 
 		<div class="card">
 			<div class="card-body register-card-body">
-				<p class="login-box-msg">Sign in to start your session
+				<p class="login-box-msg">Forget Password
 </p>	
 
 				<span style="color: red;">${error}</span>
-				<span style="color: green;">${msg}</span>
-				
-				<form action="authenticate" method="post">
+				<form action="sendotpforrecoverpassword" method="post">
 					 
  
 
@@ -53,34 +51,15 @@
 							</div>
 						</div>
 					</div>
-					<div class="input-group mb-3">
-						<input type="password" class="form-control" placeholder="Password"
-							name="password">
-						<div class="input-group-append">
-							<div class="input-group-text">
-								<span class="fas fa-lock"></span>
-							</div>
-						</div>
-					</div>
-
-					 
-
-
- 
-
- 
- 
- 
-
 
 					<div class="row">
 
 						<!-- /.col -->
 						<div class="col-4">
-							<button type="submit" class="btn btn-primary btn-block">Login</button>
+							<button type="submit" class="btn btn-primary btn-block">Recover</button>
 						</div>
 						<div class="col-4">
-							<a href="#" class="btn btn-block btn-danger"> Cancel </a>
+							<a href="login" class="btn btn-block btn-danger"> Cancel </a>
 						</div>
 
 						<!-- /.col -->
@@ -91,7 +70,7 @@
 	<br>
 				<a href="signup" class="text-center">Register</a>
 				<br>
-				<a href="forgetpassword" class="text-center">ForgetPassword?</a>
+				 
 				
 			</div>
 			<!-- /.form-box -->

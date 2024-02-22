@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.arth.entity.UserEntity;
 import com.arth.repository.UserRepository;
+import com.arth.service.MailerService;
 
 @Controller
 public class SessionController {
@@ -18,6 +19,9 @@ public class SessionController {
 
 	@Autowired
 	BCryptPasswordEncoder passwordEncoder;
+	
+	@Autowired
+	MailerService mailerService;
 
 	@GetMapping("/")
 	public String welcome() {
@@ -107,6 +111,8 @@ public class SessionController {
 
 			// send otp on mail 123456
 			System.out.println("otp => " + otp);
+			mailerService.sendMailForOTP(user.getEmail(), otp);
+			
 
 			// set otp to user's account -> db
 			dbUser.setOtp(otp);

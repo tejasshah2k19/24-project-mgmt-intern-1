@@ -43,8 +43,8 @@
 <body class="hold-transition sidebar-mini layout-fixed">
 	<div class="wrapper">
 
-	<jsp:include page="AdminHeader.jsp"></jsp:include>
-
+	
+	<%@include file="AdminHeader.jsp" %>
 		<jsp:include page="AdminSidebar.jsp"></jsp:include>
 		
 		

@@ -11,6 +11,8 @@ import com.arth.entity.UserEntity;
 import com.arth.repository.UserRepository;
 import com.arth.service.MailerService;
 
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 public class SessionController {
 
@@ -63,7 +65,7 @@ public class SessionController {
 	}
 
 	@PostMapping("/authenticate")
-	public String authenticate(UserEntity user, Model model) { // email password read
+	public String authenticate(UserEntity user, Model model,HttpSession session) { // email password read
 		UserEntity loggedInUser = userRepo.findByEmail(user.getEmail());
 		System.out.println(loggedInUser);
 
@@ -72,7 +74,13 @@ public class SessionController {
 			model.addAttribute("error", "Invalid Credentials");
 			return "Login";
 		} else {
+			
 
+			//
+			session.setAttribute("user", loggedInUser);//set user into session 
+			
+			session.setMaxInactiveInterval(60*10); //10 min -> no acitivity -> 
+			
 			boolean answer = passwordEncoder.matches(user.getPassword(), loggedInUser.getPassword());// true | false
 
 			if (answer == false) {
@@ -156,4 +164,9 @@ public class SessionController {
 		return "Login";//jsp 
 	}
 
+	@GetMapping("/logout")
+	public String logout(HttpSession session) {	
+		session.invalidate(); //destroy session 
+		return "redirect:/login"; 
+	}
 }

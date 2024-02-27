@@ -1,7 +1,8 @@
- <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
 <!DOCTYPE html>
@@ -9,7 +10,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title> PMT | ListUser</title>
+<title>PMT | List Role</title>
 <!-- Tell the browser to be responsive to screen width -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Font Awesome -->
@@ -43,26 +44,26 @@
 <body class="hold-transition sidebar-mini layout-fixed">
 	<div class="wrapper">
 
-	<jsp:include page="AdminHeader.jsp"></jsp:include>
+		<jsp:include page="AdminHeader.jsp"></jsp:include>
 
 		<jsp:include page="AdminSidebar.jsp"></jsp:include>
-		
-		
-		
+
+
+
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
 			<!-- Content Header (Page header) -->
-			<div class="content-header">
+			<section class="content-header">
 				<div class="container-fluid">
 					<div class="row mb-2">
-						<div class="col-sm-6">
+						<div class="col-md-6">
 							<h1 class="m-0 text-dark">List User</h1>
 						</div>
 						<!-- /.col -->
 						<div class="col-sm-6">
 							<ol class="breadcrumb float-sm-right">
 								<li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-								<li class="breadcrumb-item active">List User</li>
+								<li class="breadcrumb-item active">List Role</li>
 							</ol>
 						</div>
 						<!-- /.col -->
@@ -70,30 +71,45 @@
 					<!-- /.row -->
 				</div>
 				<!-- /.container-fluid -->
-			</div>
+			</section>
 			<!-- /.content-header -->
 
-			<table border="1">
-		<tr>
-			<th>RoleId</th>
-			<th>RoleName</th>
-			<th>Action</th>
-		</tr>
+			<section class="content">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="card">
+								<!-- 								<div class="card-header"></div>
+ -->
+								<div class="card-body table-responsive p-0">
+									<table class="table table-hover text-nowrap">
+										<thead>
+											<tr>
+												<th>RoleId</th>
+												<th>RoleName</th>
+												<th>Action</th>
+											</tr>
+										</thead>
 
-		<c:forEach items="${r}" var="a">
+										<tbody>
 
-			<tr>
-				<td>${a.roleId}</td>
-				<td>${a.roleName}</td>
-				<td><a href="deleterole?roleId=${a.roleId}">Delete</a></td>
-			</tr>
-		</c:forEach>
+											<c:forEach items="${r}" var="a">
 
-	</table>
-	
-	
-	
-	
+												<tr>
+													<td>${a.roleId}</td>
+													<td>${a.roleName}</td>
+													<td><a href="deleterole?roleId=${a.roleId}">Delete</a></td>
+												</tr>
+											</c:forEach>
+										</tbody>
+									</table>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
 		</div>
 		<!-- /.content-wrapper -->
 		<jsp:include page="AdminFooter.jsp"></jsp:include>
@@ -144,4 +160,3 @@
 	<script src="dist/js/demo.js"></script>
 </body>
 </html>
- 

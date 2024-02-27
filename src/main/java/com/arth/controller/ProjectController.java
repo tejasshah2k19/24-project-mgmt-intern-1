@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.arth.entity.ProjectEntity;
 import com.arth.repository.ProjectRepository;
+import com.arth.repository.ProjectStatusRepository;
 
 @Controller
 public class ProjectController {
@@ -17,8 +18,12 @@ public class ProjectController {
 	@Autowired
 	ProjectRepository projectRepo;
 	
+	@Autowired
+	ProjectStatusRepository projectStatusRepo;
+	
 	@GetMapping("/newproject")
-	public String newProject() {
+	public String newProject(Model model) {
+		model.addAttribute("projectStatusList",projectStatusRepo.findAll());
 		return "NewProject";
 
 	}

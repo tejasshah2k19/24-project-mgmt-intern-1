@@ -79,8 +79,8 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="card">
-								<!-- 								<div class="card-header"></div>
- -->
+	  															<div class="card-header"><a href="newproject">New Project</a></div>
+   
 								<div class="card-body table-responsive p-0">
 									<table class="table table-hover text-nowrap">
 										<thead>

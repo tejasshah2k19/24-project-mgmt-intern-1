@@ -51,6 +51,12 @@
 								<p>List User</p>
 						</a></li>
 			
+						<li class="nav-item"><a href="listprojects"
+							class="nav-link"> <i class="nav-icon far fa-image"></i>
+								<p>List Projects</p>
+						</a></li>
+			
+			
 						<li class="nav-item"><a href="logout"
 							class="nav-link"> <i class="nav-icon fas fa-power-off"></i>
 								<p>Logout</p>

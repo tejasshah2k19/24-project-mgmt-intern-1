@@ -53,17 +53,17 @@
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
 			<!-- Content Header (Page header) -->
-			<div class="content-header">
+			<section class="content-header">
 				<div class="container-fluid">
 					<div class="row mb-2">
-						<div class="col-sm-6">
-							<h1 class="m-0 text-dark">List Projects</h1>
+						<div class="col-md-6">
+							<h1 class="m-0 text-dark">List Project</h1>
 						</div>
 						<!-- /.col -->
 						<div class="col-sm-6">
 							<ol class="breadcrumb float-sm-right">
 								<li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-								<li class="breadcrumb-item active">List User</li>
+								<li class="breadcrumb-item active">List Project</li>
 							</ol>
 						</div>
 						<!-- /.col -->
@@ -71,41 +71,53 @@
 					<!-- /.row -->
 				</div>
 				<!-- /.container-fluid -->
-			</div>
+			</section>
 			<!-- /.content-header -->
 
-			<table border="1">
-				<thead>
-					<tr>
-						<th>Title</th>
-						<th>EstimatedHours</th>
-						<th>TotalUtilizedHours</th>
-						<th>ProjectStartDate</th>
-						<th>ProjectStatus</th>
-						<th>Action</th>
-					</tr>
+			<section class="content">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="card">
+								<!-- 								<div class="card-header"></div>
+ -->
+								<div class="card-body table-responsive p-0">
+									<table class="table table-hover text-nowrap">
+										<thead>
+											<tr>
+												<th>Title</th>
+												<th>EstimatedHours</th>
+												<th>TotalUtilizedHours</th>
+												<th>ProjectStartDate</th>
+												<th>ProjectStatus</th>
+												<th>Action</th>
+											</tr>
 
-				</thead>
+										</thead>
 
-				<tbody>
-					<c:forEach items="${p}" var="a">
+										<tbody>
+											<c:forEach items="${p}" var="a">
 
-						<tr>
-							<td>${a.title}</td>
-							<td>${a.estimatedHours}</td>
-							<td>${a.totalUtilizedHours}</td>
-							<td>${a.projectStartDate}</td>
-							<td>${a.projectStatusId}</td>
+												<tr>
+													<td>${a.title}</td>
+													<td>${a.estimatedHours}</td>
+													<td>${a.totalUtilizedHours}</td>
+													<td>${a.projectStartDate}</td>
+													<td>${a.projectStatusId}</td>
 
-							<td><a href="deleteproject?projectId=${a.projectId}">Delete</a></td>
-						</tr>
-					</c:forEach>
-				</tbody>
-			</table>
+													<td><a href="deleteproject?projectId=${a.projectId}">Delete</a></td>
+												</tr>
+											</c:forEach>
+										</tbody>
 
+									</table>
 
-
-
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
 		</div>
 		<!-- /.content-wrapper -->
 		<jsp:include page="AdminFooter.jsp"></jsp:include>

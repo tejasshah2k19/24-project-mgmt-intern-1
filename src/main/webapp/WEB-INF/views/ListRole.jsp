@@ -57,7 +57,7 @@
 				<div class="container-fluid">
 					<div class="row mb-2">
 						<div class="col-md-6">
-							<h1 class="m-0 text-dark">List User</h1>
+							<h1 class="m-0 text-dark">List Role</h1>
 						</div>
 						<!-- /.col -->
 						<div class="col-sm-6">
@@ -79,8 +79,10 @@
 					<div class="row">
 						<div class="col-md-6">
 							<div class="card">
-								<!-- 								<div class="card-header"></div>
- -->
+								<div class="card-header">
+									<a href="newrole">Add New Role</a>
+								</div>
+
 								<div class="card-body table-responsive p-0">
 									<table class="table table-hover text-nowrap">
 										<thead>

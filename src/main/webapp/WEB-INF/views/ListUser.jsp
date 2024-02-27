@@ -1,7 +1,8 @@
-  <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
 <!DOCTYPE html>
@@ -9,7 +10,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title> PMT | ListUser</title>
+<title>PMT | List User</title>
 <!-- Tell the browser to be responsive to screen width -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Font Awesome -->
@@ -43,19 +44,19 @@
 <body class="hold-transition sidebar-mini layout-fixed">
 	<div class="wrapper">
 
-	
-	<%@include file="AdminHeader.jsp" %>
+		<jsp:include page="AdminHeader.jsp"></jsp:include>
+
 		<jsp:include page="AdminSidebar.jsp"></jsp:include>
-		
-		
-		
+
+
+
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
 			<!-- Content Header (Page header) -->
-			<div class="content-header">
+			<section class="content-header">
 				<div class="container-fluid">
 					<div class="row mb-2">
-						<div class="col-sm-6">
+						<div class="col-md-6">
 							<h1 class="m-0 text-dark">List User</h1>
 						</div>
 						<!-- /.col -->
@@ -70,27 +71,47 @@
 					<!-- /.row -->
 				</div>
 				<!-- /.container-fluid -->
-			</div>
+			</section>
 			<!-- /.content-header -->
 
-			 		<table border="1" align="center"> 
-				<tr>
-					<th>FirstName</th>
-					<th>LastName</th>
-					<th>Email</th>
-				</tr>
-				
-				
-				<c:forEach items="${listUser}" var="user">
-						<tr>
-							<Td>${ user.firstName }</Td>
-							<td>${ user.lastName }</td>
-							<td>${ user.email }</td>
-						</tr>
-				</c:forEach>
-				
-				 
-		</table>
+			<section class="content">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="card">
+								<!-- 								<div class="card-header"></div>
+ -->
+								<div class="card-body table-responsive p-0">
+									<table class="table table-hover text-nowrap">
+										<thead>
+											<tr>
+												<th>FirstName</th>
+												<th>LastName</th>
+												<th>Email</th>
+												<th>Role</th>
+												<th>Action</th>
+											</tr>
+										</thead>
+
+										<tbody>
+											<c:forEach items="${listUser}" var="user">
+												<tr>
+													<Td>${ user.firstName }</Td>
+													<td>${ user.lastName }</td>
+													<td>${ user.email }</td>
+													<td>${user.roleId }</td>
+													<td>Delete</td>
+												</tr>
+											</c:forEach>
+										</tbody>
+									</table>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
 		</div>
 		<!-- /.content-wrapper -->
 		<jsp:include page="AdminFooter.jsp"></jsp:include>
@@ -141,4 +162,3 @@
 	<script src="dist/js/demo.js"></script>
 </body>
 </html>
- 

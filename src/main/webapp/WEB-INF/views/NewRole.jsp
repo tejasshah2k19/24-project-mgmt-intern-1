@@ -88,7 +88,7 @@
 								<form class="form-horizontal" action="saverole" method="post">
 									<div class="card-body">
 										<div class="form-group row">
-											<label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+											<label for="inputEmail3" class="col-sm-2 col-form-label">Role</label>
 											<div class="col-sm-10">
 												<input type="text" class="form-control" id="inputEmail3"
 													placeholder="Role Name" name="roleName">

@@ -79,7 +79,8 @@
 					<div class="row">
 						<div class="col-md-6">
 							<div class="card">
-								 								<div class="card-header">+</div>
+								 								<div class="card-header">
+								 								<a href="newuser">Add New User</a></div>
  
 								<div class="card-body table-responsive p-0">
 									<table class="table table-hover text-nowrap">

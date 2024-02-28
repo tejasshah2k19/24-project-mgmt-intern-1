@@ -10,7 +10,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>PMT | List Project</title>
+<title>PMT | List Project User</title>
 <!-- Tell the browser to be responsive to screen width -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Font Awesome -->
@@ -57,13 +57,13 @@
 				<div class="container-fluid">
 					<div class="row mb-2">
 						<div class="col-md-6">
-							<h1 class="m-0 text-dark">List Project</h1>
+							<h1 class="m-0 text-dark"> ${project.title }'s Team</h1>
 						</div>
 						<!-- /.col -->
 						<div class="col-sm-6">
 							<ol class="breadcrumb float-sm-right">
 								<li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-								<li class="breadcrumb-item active">List Project</li>
+								<li class="breadcrumb-item active">List Project User</li>
 							</ol>
 						</div>
 						<!-- /.col -->
@@ -77,41 +77,34 @@
 			<section class="content">
 				<div class="container-fluid">
 					<div class="row">
-						<div class="col-md-12">
+						<div class="col-md-6">
 							<div class="card">
-	  															<div class="card-header"><a href="newproject">New Project</a></div>
-   
+								 								<div class="card-header">
+								 								<a href="assignproject">Add New User</a></div>
+ 
 								<div class="card-body table-responsive p-0">
 									<table class="table table-hover text-nowrap">
 										<thead>
 											<tr>
-												<th>Title</th>
-												<th>EstimatedHours</th>
-												<th>TotalUtilizedHours</th>
-												<th>ProjectStartDate</th>
-												<th>ProjectStatus</th>
+												<th>FirstName</th>
+												<th>LastName</th>
+												<th>Email</th>
+												<th>Role</th>
 												<th>Action</th>
 											</tr>
-
 										</thead>
 
 										<tbody>
-											<c:forEach items="${p}" var="a">
-
+											<c:forEach items="${users}" var="user">
 												<tr>
-													<td>${a.title}</td>
-													<td>${a.estimatedHours}</td>
-													<td>${a.totalUtilizedHours}</td>
-													<td>${a.projectStartDate}</td>
-													<td>${a.projectStatusId}</td>
-
-													<td><a href="deleteproject?projectId=${a.projectId}">Delete</a>|
-														<a href="listprojectuser?projectId=${a.projectId}">View Users</a>
-													</td>
+													<Td>${ user.firstName }</Td>
+													<td>${ user.lastName }</td>
+													<td>${ user.email }</td>
+													<td>${user.roleId }</td>
+													<td>Delete</td>
 												</tr>
 											</c:forEach>
 										</tbody>
-
 									</table>
 
 								</div>

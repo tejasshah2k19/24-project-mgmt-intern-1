@@ -27,7 +27,7 @@ public class SessionController {
 
 	@GetMapping("/")
 	public String welcome() {
-		return "Welcome";// jsp name
+		return "Login";// jsp name
 	}
 
 	@GetMapping("/signup")

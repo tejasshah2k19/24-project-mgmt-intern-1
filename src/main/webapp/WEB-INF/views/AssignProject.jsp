@@ -10,7 +10,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>PMT | List Project</title>
+<title>PMT | Assign Project </title>
 <!-- Tell the browser to be responsive to screen width -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Font Awesome -->
@@ -57,13 +57,13 @@
 				<div class="container-fluid">
 					<div class="row mb-2">
 						<div class="col-md-6">
-							<h1 class="m-0 text-dark">List Project</h1>
+							<h1 class="m-0 text-dark">Assign Project</h1>
 						</div>
 						<!-- /.col -->
 						<div class="col-sm-6">
 							<ol class="breadcrumb float-sm-right">
 								<li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-								<li class="breadcrumb-item active">List Project</li>
+								<li class="breadcrumb-item active">Assign Project</li>
 							</ol>
 						</div>
 						<!-- /.col -->
@@ -77,44 +77,54 @@
 			<section class="content">
 				<div class="container-fluid">
 					<div class="row">
-						<div class="col-md-12">
-							<div class="card">
-	  															<div class="card-header"><a href="newproject">New Project</a></div>
-   
-								<div class="card-body table-responsive p-0">
-									<table class="table table-hover text-nowrap">
-										<thead>
-											<tr>
-												<th>Title</th>
-												<th>EstimatedHours</th>
-												<th>TotalUtilizedHours</th>
-												<th>ProjectStartDate</th>
-												<th>ProjectStatus</th>
-												<th>Action</th>
-											</tr>
+						<div class="col-md-6">
 
-										</thead>
-
-										<tbody>
-											<c:forEach items="${p}" var="a">
-
-												<tr>
-													<td>${a.title}</td>
-													<td>${a.estimatedHours}</td>
-													<td>${a.totalUtilizedHours}</td>
-													<td>${a.projectStartDate}</td>
-													<td>${a.projectStatusId}</td>
-
-													<td><a href="deleteproject?projectId=${a.projectId}">Delete</a>|
-														<a href="listprojectuser?projectId=${a.projectId}">View Users</a>
-													</td>
-												</tr>
-											</c:forEach>
-										</tbody>
-
-									</table>
-
+							<div class="card card-info">
+								<div class="card-header">
+									<h3 class="card-title">Project Allocation</h3>
 								</div>
+								<!-- /.card-header -->
+								<!-- form start -->
+								<form class="form-horizontal" action="assignproject" method="post">
+									<div class="card-body">
+
+										<div class="form-group row">
+											<label for="inputEmail3" class="col-sm-2 col-form-label">Project</label>
+											<div class="col-sm-10">
+												<select name="projectId" class="form-control">
+													<option value="-1">----Please Select Project----</option>
+													<c:forEach items="${projects}" var="p">
+														<option value="${p.projectId}">${p.title}</option>
+													</c:forEach>
+												</select>
+											</div>
+										</div>
+										
+										<div class="form-group row">
+											<label for="inputEmail3" class="col-sm-2 col-form-label">User</label>
+											<div class="col-sm-10">
+												<select name="userId" class="form-control">
+													<option value="-1">----Please Select User----</option>
+													<c:forEach items="${users}" var="u">
+														<option value="${u.userId}">${u.firstName} : ${u.email}</option>
+													</c:forEach>
+												</select>
+											</div>
+										</div>
+
+
+									</div>
+
+
+
+									<!-- /.card-body -->
+									<div class="card-footer">
+										<button type="submit" class="btn btn-info">Assign</button>
+										<a href="listprojects" class="btn btn-default float-right">Cancel</a>
+
+									</div>
+									<!-- /.card-footer -->
+								</form>
 							</div>
 						</div>
 					</div>

@@ -3,6 +3,7 @@ package com.arth.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +23,9 @@ public class UserController {
 	@Autowired
 	RoleRepository roleRepo;
 
+	@Autowired
+	BCryptPasswordEncoder bcrypt;
+	
 	@GetMapping("/newuser")
 	public String newUser(Model model) {
 		List<RoleEntity> roleList = roleRepo.findAll();
@@ -31,7 +35,8 @@ public class UserController {
 
 	@PostMapping("/saveuser")
 	public String saveUser(UserEntity user) {
-		 
+
+		user.setPassword(bcrypt.encode(user.getPassword()));		 
 		userRepo.save(user);// insert
 
 		return "redirect:/listuser";

@@ -10,7 +10,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>PMT | List Project</title>
+<title>PMT | New Module</title>
 <!-- Tell the browser to be responsive to screen width -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Font Awesome -->
@@ -57,13 +57,13 @@
 				<div class="container-fluid">
 					<div class="row mb-2">
 						<div class="col-md-6">
-							<h1 class="m-0 text-dark">List Project</h1>
+							<h1 class="m-0 text-dark">New Module</h1>
 						</div>
 						<!-- /.col -->
 						<div class="col-sm-6">
 							<ol class="breadcrumb float-sm-right">
 								<li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-								<li class="breadcrumb-item active">List Project</li>
+								<li class="breadcrumb-item active">New Module</li>
 							</ol>
 						</div>
 						<!-- /.col -->
@@ -77,45 +77,109 @@
 			<section class="content">
 				<div class="container-fluid">
 					<div class="row">
-						<div class="col-md-12">
-							<div class="card">
-	  															<div class="card-header"><a href="newproject">New Project</a></div>
-   
-								<div class="card-body table-responsive p-0">
-									<table class="table table-hover text-nowrap">
-										<thead>
-											<tr>
-												<th>Title</th>
-												<th>EstimatedHours</th>
-												<th>TotalUtilizedHours</th>
-												<th>ProjectStartDate</th>
-												<th>ProjectStatus</th>
-												<th>Action</th>
-											</tr>
+						<div class="col-md-6">
 
-										</thead>
-
-										<tbody>
-											<c:forEach items="${p}" var="a">
-
-												<tr>
-													<td>${a.title}</td>
-													<td>${a.estimatedHours}</td>
-													<td>${a.totalUtilizedHours}</td>
-													<td>${a.projectStartDate}</td>
-													<td>${a.projectStatusId}</td>
-
-													<td><a href="deleteproject?projectId=${a.projectId}">Delete</a>|
-														<a href="listprojectuser?projectId=${a.projectId}">Users</a>|
-														<a href="listmodule?projectId=${a.projectId}">Modules</a>
-													</td>
-												</tr>
-											</c:forEach>
-										</tbody>
-
-									</table>
-
+							<div class="card card-info">
+								<div class="card-header">
+									<h3 class="card-title">Add Module</h3>
 								</div>
+								<!-- /.card-header -->
+								<!-- form start -->
+								<form class="form-horizontal" action="savemodule" method="post">
+									<div class="card-body">
+
+										<div class="form-group row">
+											<label for="inputEmail3" class="col-sm-2 col-form-label">Title</label>
+											<div class="col-sm-10">
+												<input type="text" class="form-control" id="inputEmail3"
+													placeholder="Title" name="moduleName">
+											</div>
+										</div>
+
+
+
+
+
+
+										<div class="form-group row">
+											<label for="inputEmail3" class="col-sm-2 col-form-label">Estimated
+												Hours</label>
+											<div class="col-sm-10">
+												<input type="text" class="form-control" id="inputEmail3"
+													placeholder="Esitemated Hours" name="estimatedHours">
+											</div>
+										</div>
+
+										<div class="form-group row">
+											<label for="inputEmail3" class="col-sm-2 col-form-label">Utilized
+												Hours</label>
+											<div class="col-sm-10">
+												<input type="text" class="form-control" id="inputEmail3"
+													placeholder="Total Utilized Hours"
+													name="totalUtilizedHours">
+											</div>
+										</div>
+
+
+
+
+
+										<div class="form-group row">
+											<label for="inputEmail3" class="col-sm-2 col-form-label">Start
+												Date</label>
+											<div class="col-sm-10">
+												<input type="date" class="form-control" id="inputEmail3"
+													placeholder="Project Start Date" name="projectStartDate">
+											</div>
+										</div>
+
+										 
+ 
+
+										<div class="form-group row">
+											<label for="inputEmail3" class="col-sm-2 col-form-label">Status</label>
+											<div class="col-sm-10">
+												<select name="statusId" class="form-control">
+													<option value="-1">---Please Select Status----</option>
+													<c:forEach items="${projectStatusList}" var="ps">
+														<option value="${ps.projectStatusId}">${ps.status}</option>
+													</c:forEach>
+												</select>
+											</div>
+										</div>
+										
+										<div class="form-group row">
+											<label for="inputEmail3" class="col-sm-2 col-form-label">Doc
+												URL</label>
+											<div class="col-sm-10">
+												<input type="text" class="form-control" id="inputEmail3"
+													placeholder="Project Document URL" name="documentURL">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label for="inputEmail3" class="col-sm-2 col-form-label">Description</label>
+											<div class="col-sm-10">
+											 
+												<textarea rows="10" class="form-control" cols="5" name="description"></textarea>
+											</div>
+										</div>
+
+										<input type="hidden" name="projectId" value="${param.projectId}"/>
+
+
+									</div>
+
+
+
+									<!-- /.card-body -->
+									<div class="card-footer">
+										<button type="submit" class="btn btn-info">Save
+											Module</button>
+										<a href="listprojects" class="btn btn-default float-right">Cancel</a>
+
+									</div>
+									<!-- /.card-footer -->
+								</form>
 							</div>
 						</div>
 					</div>

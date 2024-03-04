@@ -10,7 +10,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>PMT | List Project</title>
+<title>PMT | List Modules</title>
 <!-- Tell the browser to be responsive to screen width -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Font Awesome -->
@@ -57,13 +57,13 @@
 				<div class="container-fluid">
 					<div class="row mb-2">
 						<div class="col-md-6">
-							<h1 class="m-0 text-dark">List Project</h1>
+							<h1 class="m-0 text-dark">${project.title}'s Modules </h1>
 						</div>
 						<!-- /.col -->
 						<div class="col-sm-6">
 							<ol class="breadcrumb float-sm-right">
 								<li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-								<li class="breadcrumb-item active">List Project</li>
+								<li class="breadcrumb-item active">List Module</li>
 							</ol>
 						</div>
 						<!-- /.col -->
@@ -79,40 +79,37 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="card">
-	  															<div class="card-header"><a href="newproject">New Project</a></div>
-   
+								<div class="card-header">
+									<a href="newmodule?projectId=${project.projectId}">Add New Module</a>
+								</div>
+
 								<div class="card-body table-responsive p-0">
 									<table class="table table-hover text-nowrap">
 										<thead>
 											<tr>
 												<th>Title</th>
+												<th>Status</th>
+												<th>Description</th>
 												<th>EstimatedHours</th>
-												<th>TotalUtilizedHours</th>
-												<th>ProjectStartDate</th>
-												<th>ProjectStatus</th>
+												<th>UtilizedHours</th>
 												<th>Action</th>
 											</tr>
-
 										</thead>
 
 										<tbody>
-											<c:forEach items="${p}" var="a">
-
+											<c:forEach items="${modules}" var="m">
 												<tr>
-													<td>${a.title}</td>
-													<td>${a.estimatedHours}</td>
-													<td>${a.totalUtilizedHours}</td>
-													<td>${a.projectStartDate}</td>
-													<td>${a.projectStatusId}</td>
-
-													<td><a href="deleteproject?projectId=${a.projectId}">Delete</a>|
-														<a href="listprojectuser?projectId=${a.projectId}">Users</a>|
-														<a href="listmodule?projectId=${a.projectId}">Modules</a>
+													<Td>${ m.moduleName }</Td>
+													<td>${ m.statusId }</td>
+													<td>${ m.description }</td>
+													<td>${m.estimatedHours }</td>
+													<td>${m.totalUtilizedHours }</td>
+													<td>Delete|
+													<a href="listtask?moduleId=${m.moduleId}">Task</a>
 													</td>
 												</tr>
 											</c:forEach>
 										</tbody>
-
 									</table>
 
 								</div>

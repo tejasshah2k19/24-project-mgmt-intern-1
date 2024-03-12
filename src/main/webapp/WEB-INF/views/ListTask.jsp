@@ -106,7 +106,10 @@
 													<td>${t.estimatedMinutes }</td>
 													<td>${t.totalUtilizedMinutes }</td>
 													<td>${ t.description }</td>
-													<td>Delete</td>
+													<td>
+													<a href="taskusers?taskId=${t.taskId}">Users</a>|
+													<a href="deletetask?taskId=${t.taskId}">Delete</a>
+													</td>
 												</tr>
 											</c:forEach>
 										</tbody>

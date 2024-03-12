@@ -53,7 +53,7 @@ public class TaskController {
 	@PostMapping("/savetask")
 	public String svaeTask(TaskEntity task) {
 		taskRepo.save(task);
-		return "redirect:/listtask";
+		return "redirect:/listtask?moduleId="+task.getModuleId();
 	}
 
 	@GetMapping("/listtask")
@@ -71,8 +71,10 @@ public class TaskController {
 
 	@GetMapping("/deletetask")
 	public String deleteTask(@RequestParam("taskId") Integer taskId) {
+		int moduleId = taskRepo.findById(taskId).get().getModuleId();
 		taskRepo.deleteById(taskId);
-		return "redirect:/listtask";
+		return "redirect:/listtask?moduleId="+moduleId;
 	}
-
+	
+ 
 }

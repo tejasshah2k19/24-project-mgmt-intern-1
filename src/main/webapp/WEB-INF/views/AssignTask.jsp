@@ -10,7 +10,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>PMT | List Project User</title>
+<title>PMT | Assign Task </title>
 <!-- Tell the browser to be responsive to screen width -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Font Awesome -->
@@ -57,13 +57,13 @@
 				<div class="container-fluid">
 					<div class="row mb-2">
 						<div class="col-md-6">
-							<h1 class="m-0 text-dark">${project.title }'sTeam</h1>
+							<h1 class="m-0 text-dark">Assign Task</h1>
 						</div>
 						<!-- /.col -->
 						<div class="col-sm-6">
 							<ol class="breadcrumb float-sm-right">
 								<li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-								<li class="breadcrumb-item active">List Project User</li>
+								<li class="breadcrumb-item active">Assign Task</li>
 							</ol>
 						</div>
 						<!-- /.col -->
@@ -78,139 +78,48 @@
 				<div class="container-fluid">
 					<div class="row">
 						<div class="col-md-6">
-							<div class="card">
+
+							<div class="card card-info">
 								<div class="card-header">
-								<h2>Active</h2>
-									<a href="assignproject">Add New User</a>
+									<h3 class="card-title">Task Allocation</h3>
 								</div>
+								<!-- /.card-header -->
+								<!-- form start -->
+								<form class="form-horizontal" action="assigntask" method="post">
+									<div class="card-body">
 
-								<div class="card-body table-responsive p-0">
-									<table class="table table-hover text-nowrap">
-										<thead>
-											<tr>
-												<th>FirstName</th>
-												<th>LastName</th>
-												<th>Email</th>
-												<th>Role</th>
-												<th>Action</th>
-											</tr>
-										</thead>
+									 
+										
+										<div class="form-group row">
+											<label for="inputEmail3" class="col-sm-2 col-form-label">User</label>
+											<div class="col-sm-10">
+												<select name="userId" class="form-control">
+													<option value="-1">----Please Select User----</option>
+													<c:forEach items="${users}" var="u">
+														<option value="${u.userId}">${u.firstName} : ${u.email}</option>
+													</c:forEach>
+												</select>
+											</div>
+										</div>
 
-										<tbody>
-											<c:forEach items="${users}" var="user">
-												<tr>
-													<Td>${ user.firstName }</Td>
-													<td>${ user.lastName }</td>
-													<td>${ user.email }</td>
-													<td>${user.roleId }</td>
-													<td><a
-														href="projectrevoke?userId=${user.userId}&projectId=${project.projectId}&status=2">
-															Revoke</a> | <a
-														href="projectrevoke?userId=${user.userId}&projectId=${project.projectId}&status=3">
-															Hold</a></td>
-												</tr>
-											</c:forEach>
-										</tbody>
-									</table>
-								</div>
+
+									</div>
+
+
+
+									<!-- /.card-body -->
+									<div class="card-footer">
+										<button type="submit" class="btn btn-info">Assign</button>
+										<a href="listprojects" class="btn btn-default float-right">Cancel</a>
+
+									</div>
+									<!-- /.card-footer -->
+								</form>
 							</div>
 						</div>
 					</div>
 				</div>
 			</section>
-			
-			
-			
-			<section class="content">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-md-6">
-							<div class="card">
-								<div class="card-header">
-								<h2> 	On Hold </h2>
-								</div>
-
-								<div class="card-body table-responsive p-0">
-									<table class="table table-hover text-nowrap">
-										<thead>
-											<tr>
-												<th>FirstName</th>
-												<th>LastName</th>
-												<th>Email</th>
-												<th>Role</th>
-												<th>Action</th>
-											</tr>
-										</thead>
-
-										<tbody>
-											<c:forEach items="${usersHold}" var="user">
-												<tr>
-													<Td>${ user.firstName }</Td>
-													<td>${ user.lastName }</td>
-													<td>${ user.email }</td>
-													<td>${user.roleId }</td>
-													<td><a
-														href="projectrevoke?userId=${user.userId}&projectId=${project.projectId}&status=1">
-															Re-Assign</a> | <a
-														href="projectrevoke?userId=${user.userId}&projectId=${project.projectId}&status=2">
-															Revoke</a></td>
-												</tr>
-											</c:forEach>
-										</tbody>
-									</table>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-			
-
-<section class="content">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-md-6">
-							<div class="card">
-								<div class="card-header">
-								<h2> 	Revoked </h2>
-								</div>
-
-								<div class="card-body table-responsive p-0">
-									<table class="table table-hover text-nowrap">
-										<thead>
-											<tr>
-												<th>FirstName</th>
-												<th>LastName</th>
-												<th>Email</th>
-												<th>Role</th>
-												<th>Action</th>
-											</tr>
-										</thead>
-
-										<tbody>
-											<c:forEach items="${usersRevoke}" var="user">
-												<tr>
-													<Td>${ user.firstName }</Td>
-													<td>${ user.lastName }</td>
-													<td>${ user.email }</td>
-													<td>${user.roleId }</td>
-													<td><a
-														href="projectrevoke?userId=${user.userId}&projectId=${project.projectId}&status=1">
-															Re-Assign</a> | <a
-														href="projectrevoke?userId=${user.userId}&projectId=${project.projectId}&status=3">
-															Hold</a></td>
-												</tr>
-											</c:forEach>
-										</tbody>
-									</table>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-
-
 		</div>
 		<!-- /.content-wrapper -->
 		<jsp:include page="AdminFooter.jsp"></jsp:include>

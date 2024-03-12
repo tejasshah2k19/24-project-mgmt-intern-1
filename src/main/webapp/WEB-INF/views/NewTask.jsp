@@ -164,7 +164,9 @@
 										</div>
 
 										<input type="hidden" name="projectId"
-											value="${project.projectId}" /> <input type="hidden"
+											value="${project.projectId}" /> 
+											
+											<input type="hidden"
 											name="moduleId" value="${module.moduleId}" />
 
 									</div>

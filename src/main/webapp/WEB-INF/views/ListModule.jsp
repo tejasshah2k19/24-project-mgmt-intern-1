@@ -104,7 +104,7 @@
 													<td>${ m.description }</td>
 													<td>${m.estimatedHours }</td>
 													<td>${m.totalUtilizedHours }</td>
-													<td>Delete|
+													<td><a href="deletemodule?moduleId=${m.moduleId}">Delete</a>|
 													<a href="listtask?moduleId=${m.moduleId}">Task</a>
 													</td>
 												</tr>
@@ -166,5 +166,13 @@
 	<script src="dist/js/pages/dashboard.js"></script>
 	<!-- AdminLTE for demo purposes -->
 	<script src="dist/js/demo.js"></script>
+	
+	<script type="text/javascript">
+
+		<c:if test="${param.err}">
+			alert("Module can't delete ! It has Task");	 
+		</c:if>
+		
+	</script>
 </body>
 </html>

@@ -20,7 +20,18 @@ public interface UserRepository extends JpaRepository<UserEntity, Integer> {
 	List<UserEntity> findByGender(String gender);
 
 	UserEntity findByEmail(String email);
-	
-	@Query(value = "select u.* from users u, projectuser pu where u.user_id = pu.user_id and pu.project_id = :projectId",nativeQuery = true)
+
+	//active user 
+	@Query(value = "select u.* from users u, projectuser pu where u.user_id = pu.user_id and pu.project_id = :projectId and pu.assign_status = 1",nativeQuery = true)
 	List<UserEntity> getUserByProjectId(Integer projectId);
+
+	
+	@Query(value = "select u.* from users u, projectuser pu where u.user_id = pu.user_id and pu.project_id = :projectId and pu.assign_status = 3",nativeQuery = true)
+	List<UserEntity> getUserByProjectIdHold(Integer projectId);
+
+	
+	@Query(value = "select u.* from users u, projectuser pu where u.user_id = pu.user_id and pu.project_id = :projectId and pu.assign_status = 2",nativeQuery = true)
+	List<UserEntity> getUserByProjectIdRevoke(Integer projectId);
+
+
 }

@@ -4,9 +4,6 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>PMT | Dashboard</title>
-
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <!-- Tell the browser to be responsive to screen width -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Font Awesome -->
@@ -41,13 +38,13 @@
 	<div class="wrapper">
 
 
-
-		<%@include file="AdminHeader.jsp"%>
+ 
+	<%@include file="AdminHeader.jsp" %>
 
 		<jsp:include page="AdminSidebar.jsp"></jsp:include>
-
-
-
+		
+		
+		
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
 			<!-- Content Header (Page header) -->
@@ -81,16 +78,15 @@
 							<!-- small box -->
 							<div class="small-box bg-info">
 								<div class="inner">
-									<h3>${pipeline}</h3>
+									<h3>150</h3>
 
-									<p>Pipeline</p>
+									<p>New Orders</p>
 								</div>
 								<div class="icon">
 									<i class="ion ion-bag"></i>
 								</div>
-								<a href="/projects?status=notstarted" class="small-box-footer">More
-									info <i class="fas fa-arrow-circle-right"></i>
-								</a>
+								<a href="#" class="small-box-footer">More info <i
+									class="fas fa-arrow-circle-right"></i></a>
 							</div>
 						</div>
 						<!-- ./col -->
@@ -98,31 +94,32 @@
 							<!-- small box -->
 							<div class="small-box bg-success">
 								<div class="inner">
-									<h3>${onGoing}</h3>
+									<h3>
+										53<sup style="font-size: 20px">%</sup>
+									</h3>
 
-									<p>OnGoing</p>
+									<p>Bounce Rate</p>
 								</div>
 								<div class="icon">
 									<i class="ion ion-stats-bars"></i>
 								</div>
-								<a href="/projects?status=inprogress" class="small-box-footer">More
-									info <i class="fas fa-arrow-circle-right"></i>
-								</a>
+								<a href="#" class="small-box-footer">More info <i
+									class="fas fa-arrow-circle-right"></i></a>
 							</div>
 						</div>
 						<!-- ./col -->
 						<div class="col-lg-3 col-6">
 							<!-- small box -->
-							<div class="small-box bg-warning" >
+							<div class="small-box bg-warning">
 								<div class="inner">
-									<h3 style="color: white">${team}</h3>
+									<h3>44</h3>
 
-									<p style="color: white">Team</p>
+									<p>User Registrations</p>
 								</div>
 								<div class="icon">
 									<i class="ion ion-person-add"></i>
 								</div>
-								<a href="/listuser" class="small-box-footer"  >More info <i
+								<a href="#" class="small-box-footer">More info <i
 									class="fas fa-arrow-circle-right"></i></a>
 							</div>
 						</div>
@@ -131,50 +128,25 @@
 							<!-- small box -->
 							<div class="small-box bg-danger">
 								<div class="inner">
-									<h3>${due}</h3>
+									<h3>65</h3>
 
-									<p>Due Projects</p>
+									<p>Unique Visitors</p>
 								</div>
 								<div class="icon">
 									<i class="ion ion-pie-graph"></i>
 								</div>
-								<a href="/projects?status=due" class="small-box-footer">More
-									info <i class="fas fa-arrow-circle-right"></i>
-								</a>
+								<a href="#" class="small-box-footer">More info <i
+									class="fas fa-arrow-circle-right"></i></a>
 							</div>
 						</div>
 						<!-- ./col -->
 					</div>
 					<!-- /.row -->
 					<!-- Main row -->
-
-					<div class="row">
-						<section class="col-lg-12 connectedSortable ui-sortable">
-
-							<div class="card">
-								<div class="card-header ui-sortable-handle"
-									style="cursor: move;">
-									<h3 class="card-title">
-										<i class="fas fa-chart-pie mr-1"></i> Project Hours
-									</h3>
-									<!-- 				<div class="card-tools">
-									<ul class="nav nav-pills ml-auto">
-										<li class="nav-item"><a class="nav-link active"
-											href="#revenue-chart" data-toggle="tab">Area</a></li>
-										<li class="nav-item"><a class="nav-link"
-											href="#sales-chart" data-toggle="tab">Donut</a></li>
-									</ul>
-								</div> -->
-
-									<div class="card-body">
-										<canvas id="myChart"></canvas>
-
-									</div>
-								</div>
-							</div>
-						</section>
-					</div>
-
+					 
+					 sdfndskfsd
+					 fsdfsdlfdsjflsdf
+					 
 					<!-- /.row (main row) -->
 				</div>
 				<!-- /.container-fluid -->
@@ -228,46 +200,5 @@
 	<script src="dist/js/pages/dashboard.js"></script>
 	<!-- AdminLTE for demo purposes -->
 	<script src="dist/js/demo.js"></script>
-
-	<script>
-		var ctx = document.getElementById("myChart").getContext('2d');
-		var myChart = new Chart(ctx,
-				{
-					type : 'bar',
-					data : {
-						labels : [ "Red", "Blue", "Yellow", "Green", "Purple",
-								"Orange" ],
-						datasets : [ {
-							label : '# Hours',
-							data : [ 12, 19, 3, 5, 2, 3 ],
-							backgroundColor :   
-								'rgba(75, 192, 192, 0.2)',
-							borderColor : 
-								'rgba(75, 192, 192, 1)',
-							borderWidth : 1
-						},
-						
-						{
-							label : '# utilized Hours',
-							data : [ 12, 19, 3, 5, 2, 3 ],
-							backgroundColor :  'rgba(255, 99, 132, 0.2)',
-							borderColor :   
-									'rgba(255, 99, 132, 1)',
-							borderWidth : 1
-						}
-						
-						]
-					},
-					options : {
-						scales : {
-							yAxes : [ {
-								ticks : {
-									beginAtZero : true
-								}
-							} ]
-						}
-					}
-				});
-	</script>
 </body>
 </html>

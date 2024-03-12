@@ -6,4 +6,6 @@ import com.arth.entity.ProjectStatusEntity;
 
 public interface ProjectStatusRepository extends JpaRepository<ProjectStatusEntity, Integer> {
 
+	ProjectStatusEntity findByStatus(String status);
+
 }

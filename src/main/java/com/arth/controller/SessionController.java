@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -12,6 +13,7 @@ import com.arth.repository.UserRepository;
 import com.arth.service.MailerService;
 
 import jakarta.servlet.http.HttpSession;
+import jakarta.validation.Valid;
 
 @Controller
 public class SessionController {
@@ -41,8 +43,12 @@ public class SessionController {
 	}
 
 	@PostMapping("/signup")
-	public String saveUser(UserEntity user, Model model) {
+	public String saveUser(@Valid UserEntity user,BindingResult result ,Model model) {
 
+		
+		if(result.hasErrors()) {
+			return "Signup";
+		}
 		if (!user.getPassword().equals(user.getConfirmPassword())) {
 			model.addAttribute("passwordError", "Password and Retype Password Must be same");
 			return "Signup";
@@ -91,13 +97,13 @@ public class SessionController {
 				return "Login";
 			} else if (loggedInUser.getRoleId() == 1) {
 				// admin
-				return "AdminDashboard";
+				return "redirect:/admindashboard";
 			} else if (loggedInUser.getRoleId() == 2) {
 				// project manager
 				return "ProjectManagerDashboard";
 			} else if (loggedInUser.getRoleId() == 3) {
 				// developer
-				return "DeveloperDashboard";
+				return "developerdashboard";
 			}
 		}
 		return "Login";

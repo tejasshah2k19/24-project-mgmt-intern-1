@@ -44,7 +44,7 @@
 
 		<%@include file="AdminHeader.jsp"%>
 
-		<jsp:include page="AdminSidebar.jsp"></jsp:include>
+		<jsp:include page="PMSidebar.jsp"></jsp:include>
 
 
 

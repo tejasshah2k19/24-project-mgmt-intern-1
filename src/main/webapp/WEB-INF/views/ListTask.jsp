@@ -102,7 +102,33 @@
 											<c:forEach items="${task}" var="t">
 												<tr>
 													<Td>${ t.title }</Td>
-													<td>${ t.statusId }</td>
+													<td> 
+													
+													
+														<c:if test="${t.statusId == 1}">
+															InProgress
+														</c:if>
+													
+														<c:if test="${t.statusId == 2}">
+															Hold
+														</c:if>
+														
+														<c:if test="${t.statusId == 3}">
+															Completed
+														</c:if>
+													
+														<c:if test="${t.statusId == 4}">
+															Pipeline
+														</c:if>
+														
+														<c:if test="${t.statusId == 5}">
+															Due
+														</c:if>
+													
+													
+													</td>
+													
+													
 													<td>${t.estimatedMinutes }</td>
 													<td>${t.totalUtilizedMinutes }</td>
 													<td>${ t.description }</td>

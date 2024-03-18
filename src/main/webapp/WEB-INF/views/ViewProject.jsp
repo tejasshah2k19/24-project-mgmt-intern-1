@@ -10,12 +10,21 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>PMT | List User</title>
+<title>PMT | View Project</title>
 <!-- Tell the browser to be responsive to screen width -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Font Awesome -->
 <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
 <!-- Ionicons -->
+
+<link rel="stylesheet"
+	href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet"
+	href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+<link rel="stylesheet"
+	href="plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+
+
 <link rel="stylesheet"
 	href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 <!-- Tempusdominus Bbootstrap 4 -->
@@ -57,13 +66,13 @@
 				<div class="container-fluid">
 					<div class="row mb-2">
 						<div class="col-md-6">
-							<h1 class="m-0 text-dark">List User</h1>
+							<h1 class="m-0 text-dark">View Project</h1>
 						</div>
 						<!-- /.col -->
 						<div class="col-sm-6">
 							<ol class="breadcrumb float-sm-right">
 								<li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-								<li class="breadcrumb-item active">List User</li>
+								<li class="breadcrumb-item active">View Project</li>
 							</ol>
 						</div>
 						<!-- /.col -->
@@ -77,56 +86,43 @@
 			<section class="content">
 				<div class="container-fluid">
 					<div class="row">
-						<div class="col-md-6">
+						<div class="col-md-12">
 							<div class="card">
-								 								<div class="card-header">
-								 								<a href="newuser">Add New User</a></div>
- 
-								<div class="card-body table-responsive p-0">
-									<table class="table table-hover text-nowrap">
-										<thead>
-											<tr>
-												<th>FirstName</th>
-												<th>LastName</th>
-												<th>Email</th>
-												<th>Role</th>
-												<th>Action</th>
-											</tr>
-										</thead>
+								<div class="card-header">
+									<!-- 									<a href="newproject">New Project</a>
+ -->
+								</div>
 
-										<tbody>
-											<c:forEach items="${listUser}" var="user">
-												<tr>
-													<Td>${ user.firstName }</Td>
-													<td>${ user.lastName }</td>
-													<td>${ user.email }</td>
-													<td>
-														<c:if test="${user.roleId ==1}">
-															Admin
-														</c:if>	
+								<div class="card-body">
+										<b>Project Title</b> : ${project.title}<br>
+										<b>Status  </b> : <c:if test="${project.projectStatusId == 1}">
+															InProgress
+														</c:if>
+													
+														<c:if test="${project.projectStatusId == 2}">
+															Hold
+														</c:if>
 														
+														<c:if test="${project.projectStatusId == 3}">
+															Completed
+														</c:if>
+													
+														<c:if test="${project.projectStatusId == 4}">
+															Pipeline
+														</c:if>
 														
-														<c:if test="${user.roleId ==2}">
-															ProjectManager
-														</c:if>		
+														<c:if test="${project.projectStatusId == 5}">
+															Due
+														</c:if>		<Br>
 														
-														
-														<c:if test="${user.roleId ==3}">
-															Developer
-														</c:if>	
-														
-														
-														<c:if test="${user.roleId ==4}">
-															Tester
-														</c:if>	
-														
-													</td>
-													<td>Delete</td>
-												</tr>
-											</c:forEach>
-										</tbody>
-									</table>
-
+										<b>Start Date</b> : ${project.projectStartDate }<Br>
+										<b>Estimated Date</b> : ${project.projectCompletionDate }<Br>
+										<b>Actual Completion Date </b> : ${project.actualCompletionDate }<br>		
+										<b>Estimated Hours</b> : ${project.estimatedHours }		<br>
+										<b>Utilized Hours </b> : ${project.totalUtilizedHours }<Br>
+										<b>Doc URL </b>  : ${project.docURL }<Br>
+										<b>Description </b>:${project.description }							
+										
 								</div>
 							</div>
 						</div>
@@ -173,6 +169,30 @@
 	<!-- Summernote -->
 	<script src="plugins/summernote/summernote-bs4.min.js"></script>
 	<!-- overlayScrollbars -->
+
+
+
+
+	<script src="plugins/datatables/jquery.dataTables.min.js"></script>
+	<script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+	<script
+		src="plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+	<script
+		src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+	<script src="plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+	<script src="plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+	<script src="plugins/jszip/jszip.min.js"></script>
+	<script src="plugins/pdfmake/pdfmake.min.js"></script>
+	<script src="plugins/pdfmake/vfs_fonts.js"></script>
+	<script src="plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+	<script src="plugins/datatables-buttons/js/buttons.print.min.js"></script>
+	<script src="plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+
+
+
+
+
+
 	<script
 		src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 	<!-- AdminLTE App -->
@@ -181,5 +201,20 @@
 	<script src="dist/js/pages/dashboard.js"></script>
 	<!-- AdminLTE for demo purposes -->
 	<script src="dist/js/demo.js"></script>
+
+	<script type="text/javascript">
+		//$("#listtable").DataTable();
+		$('#listtable').DataTable({
+
+			"searching" : true,
+			"ordering" : true,
+			"info" : true,
+			"autoWidth" : false,
+			"responsive" : true,
+			"buttons" : [ "copy", "csv", "excel", "pdf", "print", "colvis" ]
+		}).buttons().container().appendTo('#listtable_wrapper .col-md-6:eq(0)');
+		;
+	</script>
+
 </body>
 </html>

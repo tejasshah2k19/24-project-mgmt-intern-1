@@ -114,11 +114,40 @@
 													<td>${a.estimatedHours}</td>
 													<td>${a.totalUtilizedHours}</td>
 													<td>${a.projectStartDate}</td>
-													<td>${a.projectStatusId}</td>
+													<td>
+													
+														
+														<c:if test="${a.projectStatusId == 1}">
+															InProgress
+														</c:if>
+													
+														<c:if test="${a.projectStatusId == 2}">
+															Hold
+														</c:if>
+														
+														<c:if test="${a.projectStatusId == 3}">
+															Completed
+														</c:if>
+													
+														<c:if test="${a.projectStatusId == 4}">
+															Pipeline
+														</c:if>
+														
+														<c:if test="${a.projectStatusId == 5}">
+															Due
+														</c:if>
+													
+													
+													
+													
+													
+													</td>
 
 													<td><a href="deleteproject?projectId=${a.projectId}">Delete</a>|
 														<a href="listprojectuser?projectId=${a.projectId}">Users</a>|
-														<a href="listmodule?projectId=${a.projectId}">Modules</a>
+														<a href="listmodule?projectId=${a.projectId}">Modules</a> |
+														<a href="viewproject?projectId=${a.projectId}">View</a>
+														
 													</td>
 												</tr>
 											</c:forEach>

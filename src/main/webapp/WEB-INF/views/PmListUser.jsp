@@ -62,7 +62,7 @@
 						<!-- /.col -->
 						<div class="col-sm-6">
 							<ol class="breadcrumb float-sm-right">
-								<li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
+								<li class="breadcrumb-item"><a href="pmdashboard">Home</a></li>
 								<li class="breadcrumb-item active">List User</li>
 							</ol>
 						</div>
@@ -79,9 +79,10 @@
 					<div class="row">
 						<div class="col-md-6">
 							<div class="card">
-								 								<div class="card-header">
-								 								<a href="newuser">Add New User</a></div>
- 
+								<div class="card-header">
+					<!-- 				<a href="newuser">Add New User</a> -->
+								</div>
+
 								<div class="card-body table-responsive p-0">
 									<table class="table table-hover text-nowrap">
 										<thead>
@@ -100,27 +101,15 @@
 													<Td>${ user.firstName }</Td>
 													<td>${ user.lastName }</td>
 													<td>${ user.email }</td>
-													<td>
-														<c:if test="${user.roleId ==1}">
+													<td><c:if test="${user.roleId ==1}">
 															Admin
-														</c:if>	
-														
-														
-														<c:if test="${user.roleId ==2}">
+														</c:if> <c:if test="${user.roleId ==2}">
 															ProjectManager
-														</c:if>		
-														
-														
-														<c:if test="${user.roleId ==3}">
+														</c:if> <c:if test="${user.roleId ==3}">
 															Developer
-														</c:if>	
-														
-														
-														<c:if test="${user.roleId ==4}">
+														</c:if> <c:if test="${user.roleId ==4}">
 															Tester
-														</c:if>	
-														
-													</td>
+														</c:if></td>
 													<td>Delete</td>
 												</tr>
 											</c:forEach>

@@ -17,7 +17,7 @@ public class TaskEntity {
 	private String title;
 	private Integer moduleId;
 	private Integer projectId;
-	private Integer statusId;
+	private Integer statusId;//
 	private Integer estimatedMinutes;
 	private Integer totalUtilizedMinutes;
 	private String documentURL;

@@ -28,7 +28,7 @@ public class UserEntity {
 	private String city;
 	private String state;
 	private Integer otp;
-	private Integer roleId;
+	private Integer roleId;//1->admin , 2->projectManager,3->Developer,4->Tester 
 
 	public Integer getUserId() {
 		return userId;

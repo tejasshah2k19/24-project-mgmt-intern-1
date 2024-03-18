@@ -34,4 +34,8 @@ public interface UserRepository extends JpaRepository<UserEntity, Integer> {
 	List<UserEntity> getUserByProjectIdRevoke(Integer projectId);
 
 
+	@Query(value="select * from users where user_id in (select user_id from projectuser where project_id in (select project_id from projectuser where user_id  = :userId))",nativeQuery = true)
+	List<UserEntity> pmWiseTeam(Integer userId);
+	
+	
 }

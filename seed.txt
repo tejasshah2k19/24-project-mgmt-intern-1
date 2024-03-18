@@ -4,6 +4,13 @@
 insert into roles (role_name) values ('Admin');
 insert into roles (role_name) values ('ProjectManager');
 insert into roles (role_name) values ('Developer');
+insert into roles (role_name) values ('Tester');
+
+insert into project_status (status) values ('InProgress');
+insert into project_status (status) values ('Hold');
+insert into project_status (status) values ('Completed');
+insert into project_status (status) values ('NotStarted');
+insert into project_status (status) values ('Due');
 
 
 insert 

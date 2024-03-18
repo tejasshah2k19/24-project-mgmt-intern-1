@@ -100,8 +100,7 @@
 										<div class="form-group row">
 											<label for="inputEmail3" class="col-sm-2 col-form-label">Description</label>
 											<div class="col-sm-10">
-												<input type="text" class="form-control" id="inputEmail3"
-													placeholder="Project Description" name="description">
+												<textarea class="form-control" name="description" ></textarea>
 											</div>
 										</div>
 

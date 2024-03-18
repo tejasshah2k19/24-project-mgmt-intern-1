@@ -15,7 +15,7 @@ public class ProjectEntity {
 	private Integer projectId;
 	private String title;
 	private String description;
-	private Integer projectStatusId;// fk
+	private Integer projectStatusId;// fk  1->inProgress,2->hold,3->completed,4->notStarted,5->due 
 	private String docURL;
 	private Integer estimatedHours;
 	private Integer totalUtilizedHours;

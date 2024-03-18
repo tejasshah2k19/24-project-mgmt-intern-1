@@ -61,6 +61,15 @@ public class ProjectController {
 		model.addAttribute("p", projects);
 		return "ListProject";
 	}
+	
+	@GetMapping("/viewproject")
+	public String viewProject(@RequestParam("projectId") Integer projectId,Model model) {
+		
+		ProjectEntity project =  projectRepo.findById(projectId).get(); 
+		model.addAttribute("project",project);
+		
+		return "ViewProject";
+	}
 }
 
 //new role -> NewRole.jsp 

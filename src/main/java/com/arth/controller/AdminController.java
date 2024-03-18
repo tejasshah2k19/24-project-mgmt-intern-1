@@ -1,5 +1,6 @@
 package com.arth.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,35 +21,44 @@ public class AdminController {
 	ProjectRepository projectRepo;
 
 	@Autowired
-	ProjectStatusRepository projectStatusRepo; 
-	
+	ProjectStatusRepository projectStatusRepo;
+
 	@Autowired
-	UserRepository userRepo; 
-	
+	UserRepository userRepo;
+
 	@GetMapping("/admindashboard")
 	public String adminDashboard(Model model) {
-		
-		
-		ProjectStatusEntity ps = projectStatusRepo.findByStatus("notstarted");
- 		model.addAttribute("pipeline",projectRepo.findByProjectStatusId(ps.getProjectStatusId()).size());
 
- 		
- 		ps = projectStatusRepo.findByStatus("inprogress"); 	
- 		List<ProjectEntity> inProgress  =projectRepo.findByProjectStatusId(ps.getProjectStatusId()); 
- 		model.addAttribute("onGoing",inProgress.size());
-		
+		ProjectStatusEntity ps = projectStatusRepo.findByStatus("notstarted");
+		model.addAttribute("pipeline", projectRepo.findByProjectStatusId(ps.getProjectStatusId()).size());
+
+		ps = projectStatusRepo.findByStatus("inprogress");
+		List<ProjectEntity> inProgress = projectRepo.findByProjectStatusId(ps.getProjectStatusId());
+		model.addAttribute("onGoing", inProgress.size());
 
 		ps = projectStatusRepo.findByStatus("due");
-		List<ProjectEntity> due  =projectRepo.findByProjectStatusId(ps.getProjectStatusId()); 
-		model.addAttribute("due",due.size());
+		List<ProjectEntity> due = projectRepo.findByProjectStatusId(ps.getProjectStatusId());
+		model.addAttribute("due", due.size());
 
+		List<ProjectEntity> projects = new ArrayList<>();
+		projects.addAll(inProgress);
+		projects.addAll(due);
 
-		
-		model.addAttribute("projects",inProgress.addAll(due));
-		
-		model.addAttribute("team",userRepo.findAll().size());
-		
-		
+		String projectName = "";
+		String set1 = "";
+		String set2 = "";
+		for (ProjectEntity p : projects) {
+			projectName = projectName + "'" + p.getTitle() + "',";
+			set1 = set1 + p.getEstimatedHours()+",";
+			set2 = set2 + p.getTotalUtilizedHours()+","; 
+		}
+
+		model.addAttribute("projectName", projectName);
+		model.addAttribute("set1", set1);
+		model.addAttribute("set2", set2);
+
+		model.addAttribute("team", userRepo.findAll().size());
+
 		return "AdminDashboard";
 	}
 }

@@ -80,134 +80,135 @@
 						<div class="col-md-6">
 							<div class="card">
 								<div class="card-header">
-
-
-									<ul class="nav nav-pills">
-										<li class="nav-item"><a class="nav-link" href="#active"
-											data-toggle="tab">Active</a></li>
-										<li class="nav-item"><a class="nav-link active"
-											href="#hold" data-toggle="tab">On Hold</a></li>
-										<li class="nav-item"><a class="nav-link" href="#revoked"
-											data-toggle="tab">Revoked</a></li>
-									</ul>
-
-
+								<h2>Active</h2>
+									<a href="assignproject">Add New User</a>
 								</div>
 
 								<div class="card-body table-responsive p-0">
-									<div class="tab-content">
-										<div class="tab-pane" id="active">
-											<table class="table table-hover text-nowrap">
-												<thead>
-													<tr>
-														<th>FirstName</th>
-														<th>LastName</th>
-														<th>Email</th>
-														<th>Role</th>
-														<th>Action</th>
-													</tr>
-												</thead>
+									<table class="table table-hover text-nowrap">
+										<thead>
+											<tr>
+												<th>FirstName</th>
+												<th>LastName</th>
+												<th>Email</th>
+												<th>Role</th>
+												<th>Action</th>
+											</tr>
+										</thead>
 
-												<tbody>
-													<c:forEach items="${users}" var="user">
-														<tr>
-															<Td>${ user.firstName }</Td>
-															<td>${ user.lastName }</td>
-															<td>${ user.email }</td>
-															<td>${user.roleId }</td>
-															<td><a
-																href="projectrevoke?userId=${user.userId}&projectId=${project.projectId}&status=2">
-																	Revoke</a> | <a
-																href="projectrevoke?userId=${user.userId}&projectId=${project.projectId}&status=3">
-																	Hold</a></td>
-														</tr>
-													</c:forEach>
-												</tbody>
-											</table>
-										</div>
-										<!-- tab-pane active-->
-
-
-										<div class="tab-pane" id="hold">
-											<table class="table table-hover text-nowrap">
-												<thead>
-													<tr>
-														<th>FirstName</th>
-														<th>LastName</th>
-														<th>Email</th>
-														<th>Role</th>
-														<th>Action</th>
-													</tr>
-												</thead>
-
-												<tbody>
-													<c:forEach items="${usersHold}" var="user">
-														<tr>
-															<Td>${ user.firstName }</Td>
-															<td>${ user.lastName }</td>
-															<td>${ user.email }</td>
-															<td>${user.roleId }</td>
-															<td><a
-																href="projectrevoke?userId=${user.userId}&projectId=${project.projectId}&status=1">
-																	Re-Assign</a> | <a
-																href="projectrevoke?userId=${user.userId}&projectId=${project.projectId}&status=2">
-																	Revoke</a></td>
-														</tr>
-													</c:forEach>
-												</tbody>
-											</table>
-
-
-										</div>
-										<!-- tab pane hold -->
-
-										<div class="tab-pane" id="revoked">
-											<table class="table table-hover text-nowrap">
-												<thead>
-													<tr>
-														<th>FirstName</th>
-														<th>LastName</th>
-														<th>Email</th>
-														<th>Role</th>
-														<th>Action</th>
-													</tr>
-												</thead>
-
-												<tbody>
-													<c:forEach items="${usersRevoke}" var="user">
-														<tr>
-															<Td>${ user.firstName }</Td>
-															<td>${ user.lastName }</td>
-															<td>${ user.email }</td>
-															<td>${user.roleId }</td>
-															<td><a
-																href="projectrevoke?userId=${user.userId}&projectId=${project.projectId}&status=1">
-																	Re-Assign</a> | <a
-																href="projectrevoke?userId=${user.userId}&projectId=${project.projectId}&status=3">
-																	Hold</a></td>
-														</tr>
-													</c:forEach>
-												</tbody>
-											</table>
-										</div>
-										<!-- tab pane revoked -->
-
-
-									</div>
-									<!-- tab content -->
-
+										<tbody>
+											<c:forEach items="${users}" var="user">
+												<tr>
+													<Td>${ user.firstName }</Td>
+													<td>${ user.lastName }</td>
+													<td>${ user.email }</td>
+													<td>${user.roleId }</td>
+													<td><a
+														href="projectrevoke?userId=${user.userId}&projectId=${project.projectId}&status=2">
+															Revoke</a> | <a
+														href="projectrevoke?userId=${user.userId}&projectId=${project.projectId}&status=3">
+															Hold</a></td>
+												</tr>
+											</c:forEach>
+										</tbody>
+									</table>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</section>
+			
+			
+			
+			<section class="content">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="card">
+								<div class="card-header">
+								<h2> 	On Hold </h2>
+								</div>
 
+								<div class="card-body table-responsive p-0">
+									<table class="table table-hover text-nowrap">
+										<thead>
+											<tr>
+												<th>FirstName</th>
+												<th>LastName</th>
+												<th>Email</th>
+												<th>Role</th>
+												<th>Action</th>
+											</tr>
+										</thead>
 
+										<tbody>
+											<c:forEach items="${usersHold}" var="user">
+												<tr>
+													<Td>${ user.firstName }</Td>
+													<td>${ user.lastName }</td>
+													<td>${ user.email }</td>
+													<td>${user.roleId }</td>
+													<td><a
+														href="projectrevoke?userId=${user.userId}&projectId=${project.projectId}&status=1">
+															Re-Assign</a> | <a
+														href="projectrevoke?userId=${user.userId}&projectId=${project.projectId}&status=2">
+															Revoke</a></td>
+												</tr>
+											</c:forEach>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			
 
+<section class="content">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="card">
+								<div class="card-header">
+								<h2> 	Revoked </h2>
+								</div>
 
+								<div class="card-body table-responsive p-0">
+									<table class="table table-hover text-nowrap">
+										<thead>
+											<tr>
+												<th>FirstName</th>
+												<th>LastName</th>
+												<th>Email</th>
+												<th>Role</th>
+												<th>Action</th>
+											</tr>
+										</thead>
 
-
+										<tbody>
+											<c:forEach items="${usersRevoke}" var="user">
+												<tr>
+													<Td>${ user.firstName }</Td>
+													<td>${ user.lastName }</td>
+													<td>${ user.email }</td>
+													<td>${user.roleId }</td>
+													<td><a
+														href="projectrevoke?userId=${user.userId}&projectId=${project.projectId}&status=1">
+															Re-Assign</a> | <a
+														href="projectrevoke?userId=${user.userId}&projectId=${project.projectId}&status=3">
+															Hold</a></td>
+												</tr>
+											</c:forEach>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
 
 
 		</div>

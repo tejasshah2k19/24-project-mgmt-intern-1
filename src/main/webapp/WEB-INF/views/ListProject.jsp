@@ -146,7 +146,8 @@
 													<td><a href="deleteproject?projectId=${a.projectId}">Delete</a>|
 														<a href="listprojectuser?projectId=${a.projectId}">Users</a>|
 														<a href="listmodule?projectId=${a.projectId}">Modules</a> |
-														<a href="viewproject?projectId=${a.projectId}">View</a>
+														<a href="viewproject?projectId=${a.projectId}">View</a> | 
+														<a href="editproject?projectId=${a.projectId}">Edit</a>
 														
 													</td>
 												</tr>

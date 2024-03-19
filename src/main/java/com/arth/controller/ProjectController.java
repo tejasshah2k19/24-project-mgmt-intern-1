@@ -32,7 +32,7 @@ public class ProjectController {
 
 	@PostMapping("/saveproject")
 	public String saveProject(ProjectEntity projectEntity) {
-		projectRepo.save(projectEntity);
+		projectRepo.save(projectEntity);//save -> insert update -> id present update ,id not present insert 
 		return "redirect:/listprojects";
 	}
 
@@ -69,6 +69,18 @@ public class ProjectController {
 		model.addAttribute("project",project);
 		
 		return "ViewProject";
+	}
+	
+	
+	@GetMapping("/editproject")
+	public String editProject(@RequestParam("projectId") Integer projectId,Model model) {
+		
+		ProjectEntity project =  projectRepo.findById(projectId).get(); 
+		model.addAttribute("projectStatusList", projectStatusRepo.findAll());
+
+		model.addAttribute("project",project);
+		
+		return "EditProject";
 	}
 }
 

@@ -93,7 +93,6 @@
 												<th>Status</th>
 												<th>Estimated Minutes</th>
 												<th>Utilized Minutes</th>
-												<th>Description</th>
 												<th>Action</th>
 											</tr>
 										</thead>
@@ -131,10 +130,11 @@
 													
 													<td>${t.estimatedMinutes }</td>
 													<td>${t.totalUtilizedMinutes }</td>
-													<td>${ t.description }</td>
 													<td>
 													<a href="taskusers?taskId=${t.taskId}">Users</a>|
-													<a href="deletetask?taskId=${t.taskId}">Delete</a>
+													<a href="deletetask?taskId=${t.taskId}">Delete</a>|
+													<a href="viewtask?taskId=${t.taskId}">View</a>	
+
 													</td>
 												</tr>
 											</c:forEach>

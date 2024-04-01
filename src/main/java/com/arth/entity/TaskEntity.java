@@ -1,5 +1,6 @@
 package com.arth.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -21,6 +22,7 @@ public class TaskEntity {
 	private Integer estimatedMinutes;
 	private Integer totalUtilizedMinutes;
 	private String documentURL;
+	@Column(columnDefinition = "TEXT")
 	private String description;
 
 	public Integer getTaskId() {

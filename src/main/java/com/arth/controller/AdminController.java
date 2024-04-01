@@ -49,8 +49,8 @@ public class AdminController {
 		String set2 = "";
 		for (ProjectEntity p : projects) {
 			projectName = projectName + "'" + p.getTitle() + "',";
-			set1 = set1 + p.getEstimatedHours()+",";
-			set2 = set2 + p.getTotalUtilizedHours()+","; 
+			set1 = set1 + p.getEstimatedHours() + ",";
+			set2 = set2 + p.getTotalUtilizedHours() + ",";
 		}
 
 		model.addAttribute("projectName", projectName);
@@ -61,4 +61,19 @@ public class AdminController {
 
 		return "AdminDashboard";
 	}
+
+	@GetMapping("/chart")
+	public String chart(Model model) {
+		List<ProjectEntity> projects = projectRepo.findAll();
+		String projectName  = "";
+		String estimatedHr = "";
+		for(ProjectEntity p:projects) {
+			projectName = projectName +"'"+p.getTitle()+"',";
+			estimatedHr = estimatedHr + p.getEstimatedHours() +",";
+		}
+		model.addAttribute("projectName",projectName);
+		model.addAttribute("estimatedHr",estimatedHr);
+		return "Chart";
+	}
+
 }

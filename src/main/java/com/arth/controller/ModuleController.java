@@ -68,4 +68,13 @@ public class ModuleController {
 		return "redirect:/listmodule?err=true&projectId=" + projectId;
 	}
 
+	@GetMapping("/viewmodule")
+	public String viewModule(@RequestParam("moduleId") Integer moduleId, Model model) {
+		ModuleEntity modules = m.findById(moduleId).get();
+		ProjectEntity project = projectRepo.findById(modules.getProjectId()).get();
+		model.addAttribute("module", modules);
+		model.addAttribute("project", project);
+		return "ViewModule";
+	}
+
 }

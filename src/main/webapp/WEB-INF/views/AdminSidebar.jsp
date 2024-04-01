@@ -60,6 +60,11 @@
 							class="nav-link"> <i class="nav-icon far fa-image"></i>
 								<p>Assign Projects</p>
 						</a></li>
+			
+						<li class="nav-item"><a href="chart"
+							class="nav-link"> <i class="nav-icon far fa-image"></i>
+								<p>Chart</p>
+						</a></li>
 			 
 			
 			

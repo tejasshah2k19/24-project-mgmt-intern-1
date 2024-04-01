@@ -10,12 +10,21 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>PMT | List Modules</title>
+<title>PMT | My Project</title>
 <!-- Tell the browser to be responsive to screen width -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Font Awesome -->
 <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
 <!-- Ionicons -->
+
+<link rel="stylesheet"
+	href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet"
+	href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+<link rel="stylesheet"
+	href="plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+
+
 <link rel="stylesheet"
 	href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 <!-- Tempusdominus Bbootstrap 4 -->
@@ -44,9 +53,9 @@
 <body class="hold-transition sidebar-mini layout-fixed">
 	<div class="wrapper">
 
-		<jsp:include page="AdminHeader.jsp"></jsp:include>
+		<jsp:include page="DeveloperHeader.jsp"></jsp:include>
 
-		<jsp:include page="AdminSidebar.jsp"></jsp:include>
+		<jsp:include page="DeveloperSidebar.jsp"></jsp:include>
 
 
 
@@ -57,13 +66,13 @@
 				<div class="container-fluid">
 					<div class="row mb-2">
 						<div class="col-md-6">
-							<h1 class="m-0 text-dark">${project.title}'sModules</h1>
+							<h1 class="m-0 text-dark">My Project</h1>
 						</div>
 						<!-- /.col -->
 						<div class="col-sm-6">
 							<ol class="breadcrumb float-sm-right">
-								<li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-								<li class="breadcrumb-item active">List Module</li>
+								<li class="breadcrumb-item"><a href="developerdashboard">Home</a></li>
+								<li class="breadcrumb-item active">My Project</li>
 							</ol>
 						</div>
 						<!-- /.col -->
@@ -79,56 +88,45 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="card">
-								<div class="card-header">
-									<a href="newmodule?projectId=${project.projectId}">Add New
-										Module</a>
-								</div>
 
-								<div class="card-body table-responsive p-0">
-									<table class="table table-hover text-nowrap">
+
+								<div class="card-body">
+									<table id="listtable" class="table table-bordered table-hover">
 										<thead>
 											<tr>
 												<th>Title</th>
-												<th>Status</th>
-												<th>EstimatedHours</th>
-												<th>UtilizedHours</th>
+												<th>TotalUtilizedHours</th>
+ 												<th>ProjectStatus</th>
 												<th>Action</th>
 											</tr>
+
 										</thead>
 
 										<tbody>
-											<c:forEach items="${modules}" var="m">
+											<c:forEach items="${projects}" var="a">
+
 												<tr>
-													<Td>${ m.moduleName }</Td>
-	<td>
-													<c:if test="${m.statusId == 1}">
+													<td>${a.title}</td>
+													<td>${a.totalUtilizedHours}</td>
+ 													<td><c:if test="${a.projectStatusId == 1}">
 															InProgress
-														</c:if>
-
-													<c:if test="${m.statusId == 2}">
+														</c:if> <c:if test="${a.projectStatusId == 2}">
 															Hold
-														</c:if>
-
-													<c:if test="${m.statusId == 3}">
+														</c:if> <c:if test="${a.projectStatusId == 3}">
 															Completed
-														</c:if>
-
-													<c:if test="${m.statusId == 4}">
+														</c:if> <c:if test="${a.projectStatusId == 4}">
 															Pipeline
-														</c:if>
-
-													<c:if test="${m.statusId == 5}">
+														</c:if> <c:if test="${a.projectStatusId == 5}">
 															Due
-														</c:if>
-</td>
-													<td>${m.estimatedHours }</td>
-													<td>${m.totalUtilizedHours }</td>
-													<td><a href="viewmodule?moduleId=${m.moduleId}">View</a>|
-														<a href="deletemodule?moduleId=${m.moduleId}">Delete</a>|
-														<a href="listtask?moduleId=${m.moduleId}">Task</a></td>
+														</c:if></td>
+
+													<td><a href="devlistmodule?projectId=${a.projectId}">Modules</a>
+														| <a href="viewproject?projectId=${a.projectId}">View</a>
+														|</td>
 												</tr>
 											</c:forEach>
 										</tbody>
+
 									</table>
 
 								</div>
@@ -177,6 +175,30 @@
 	<!-- Summernote -->
 	<script src="plugins/summernote/summernote-bs4.min.js"></script>
 	<!-- overlayScrollbars -->
+
+
+
+
+	<script src="plugins/datatables/jquery.dataTables.min.js"></script>
+	<script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+	<script
+		src="plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+	<script
+		src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+	<script src="plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+	<script src="plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+	<script src="plugins/jszip/jszip.min.js"></script>
+	<script src="plugins/pdfmake/pdfmake.min.js"></script>
+	<script src="plugins/pdfmake/vfs_fonts.js"></script>
+	<script src="plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+	<script src="plugins/datatables-buttons/js/buttons.print.min.js"></script>
+	<script src="plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+
+
+
+
+
+
 	<script
 		src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 	<!-- AdminLTE App -->
@@ -187,9 +209,18 @@
 	<script src="dist/js/demo.js"></script>
 
 	<script type="text/javascript">
-		<c:if test="${param.err}">
-		alert("Module can't delete ! It has Task");
-		</c:if>
+		//$("#listtable").DataTable();
+		$('#listtable').DataTable({
+
+			"searching" : true,
+			"ordering" : true,
+			"info" : true,
+			"autoWidth" : false,
+			"responsive" : true,
+			"buttons" : [ "copy", "csv", "excel", "pdf", "print", "colvis" ]
+		}).buttons().container().appendTo('#listtable_wrapper .col-md-6:eq(0)');
+		;
 	</script>
+
 </body>
 </html>

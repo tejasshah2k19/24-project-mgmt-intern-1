@@ -1,16 +1,12 @@
-
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>PMT | List Modules</title>
+<title>PMT | Dashboard</title>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!-- Tell the browser to be responsive to screen width -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Font Awesome -->
@@ -44,7 +40,9 @@
 <body class="hold-transition sidebar-mini layout-fixed">
 	<div class="wrapper">
 
-		<jsp:include page="AdminHeader.jsp"></jsp:include>
+
+
+		<%@include file="AdminHeader.jsp"%>
 
 		<jsp:include page="AdminSidebar.jsp"></jsp:include>
 
@@ -53,17 +51,17 @@
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
 			<!-- Content Header (Page header) -->
-			<section class="content-header">
+			<div class="content-header">
 				<div class="container-fluid">
 					<div class="row mb-2">
-						<div class="col-md-6">
-							<h1 class="m-0 text-dark">${project.title}'sModules</h1>
+						<div class="col-sm-6">
+							<h1 class="m-0 text-dark">Chart</h1>
 						</div>
 						<!-- /.col -->
 						<div class="col-sm-6">
 							<ol class="breadcrumb float-sm-right">
 								<li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-								<li class="breadcrumb-item active">List Module</li>
+								<li class="breadcrumb-item active">Char</li>
 							</ol>
 						</div>
 						<!-- /.col -->
@@ -71,65 +69,20 @@
 					<!-- /.row -->
 				</div>
 				<!-- /.container-fluid -->
-			</section>
+			</div>
 			<!-- /.content-header -->
 
+			<!-- Main content -->
 			<section class="content">
 				<div class="container-fluid">
 					<div class="row">
 						<div class="col-md-12">
 							<div class="card">
-								<div class="card-header">
-									<a href="newmodule?projectId=${project.projectId}">Add New
-										Module</a>
-								</div>
+								<div class="card-body">
 
-								<div class="card-body table-responsive p-0">
-									<table class="table table-hover text-nowrap">
-										<thead>
-											<tr>
-												<th>Title</th>
-												<th>Status</th>
-												<th>EstimatedHours</th>
-												<th>UtilizedHours</th>
-												<th>Action</th>
-											</tr>
-										</thead>
-
-										<tbody>
-											<c:forEach items="${modules}" var="m">
-												<tr>
-													<Td>${ m.moduleName }</Td>
-	<td>
-													<c:if test="${m.statusId == 1}">
-															InProgress
-														</c:if>
-
-													<c:if test="${m.statusId == 2}">
-															Hold
-														</c:if>
-
-													<c:if test="${m.statusId == 3}">
-															Completed
-														</c:if>
-
-													<c:if test="${m.statusId == 4}">
-															Pipeline
-														</c:if>
-
-													<c:if test="${m.statusId == 5}">
-															Due
-														</c:if>
-</td>
-													<td>${m.estimatedHours }</td>
-													<td>${m.totalUtilizedHours }</td>
-													<td><a href="viewmodule?moduleId=${m.moduleId}">View</a>|
-														<a href="deletemodule?moduleId=${m.moduleId}">Delete</a>|
-														<a href="listtask?moduleId=${m.moduleId}">Task</a></td>
-												</tr>
-											</c:forEach>
-										</tbody>
-									</table>
+									<div>
+										<canvas id="myChart"></canvas>
+									</div>
 
 								</div>
 							</div>
@@ -137,6 +90,9 @@
 					</div>
 				</div>
 			</section>
+
+
+
 		</div>
 		<!-- /.content-wrapper -->
 		<jsp:include page="AdminFooter.jsp"></jsp:include>
@@ -186,10 +142,30 @@
 	<!-- AdminLTE for demo purposes -->
 	<script src="dist/js/demo.js"></script>
 
-	<script type="text/javascript">
-		<c:if test="${param.err}">
-		alert("Module can't delete ! It has Task");
-		</c:if>
+
+	<script>
+		const ctx = document.getElementById('myChart');
+
+		new Chart(ctx,
+				{
+					type : 'bar',
+					data : {
+						labels : [${projectName}],
+						datasets : [ {
+							label : '# Hours',
+							data : [ ${estimatedHr}],
+							borderWidth : 1
+						} ]
+					},
+					options : {
+						scales : {
+							y : {
+								beginAtZero : true
+							}
+						}
+					}
+				});
 	</script>
+
 </body>
 </html>

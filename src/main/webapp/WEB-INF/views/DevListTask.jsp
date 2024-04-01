@@ -10,7 +10,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>PMT | List Modules</title>
+<title>PMT | My Task</title>
 <!-- Tell the browser to be responsive to screen width -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Font Awesome -->
@@ -44,9 +44,9 @@
 <body class="hold-transition sidebar-mini layout-fixed">
 	<div class="wrapper">
 
-		<jsp:include page="AdminHeader.jsp"></jsp:include>
+		<jsp:include page="DeveloperHeader.jsp"></jsp:include>
 
-		<jsp:include page="AdminSidebar.jsp"></jsp:include>
+		<jsp:include page="DeveloperSidebar.jsp"></jsp:include>
 
 
 
@@ -57,13 +57,14 @@
 				<div class="container-fluid">
 					<div class="row mb-2">
 						<div class="col-md-6">
-							<h1 class="m-0 text-dark">${project.title}'sModules</h1>
+							<h1 class="m-0 text-dark">${project.title}:
+								${module.moduleName }'s Task</h1>
 						</div>
 						<!-- /.col -->
 						<div class="col-sm-6">
 							<ol class="breadcrumb float-sm-right">
-								<li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-								<li class="breadcrumb-item active">List Module</li>
+								<li class="breadcrumb-item"><a href="developerdashboard">Home</a></li>
+								<li class="breadcrumb-item active">My Task</li>
 							</ol>
 						</div>
 						<!-- /.col -->
@@ -80,8 +81,7 @@
 						<div class="col-md-12">
 							<div class="card">
 								<div class="card-header">
-									<a href="newmodule?projectId=${project.projectId}">Add New
-										Module</a>
+									<a href="newtask?moduleId=${module.moduleId}">Add New Task</a>
 								</div>
 
 								<div class="card-body table-responsive p-0">
@@ -90,42 +90,36 @@
 											<tr>
 												<th>Title</th>
 												<th>Status</th>
-												<th>EstimatedHours</th>
-												<th>UtilizedHours</th>
-												<th>Action</th>
+												<th>Estimated Minutes</th>
+												<th>Utilized Minutes</th>
+ 												<th>Action</th>
 											</tr>
 										</thead>
 
 										<tbody>
-											<c:forEach items="${modules}" var="m">
+											<c:forEach items="${task}" var="t">
 												<tr>
-													<Td>${ m.moduleName }</Td>
-	<td>
-													<c:if test="${m.statusId == 1}">
+													<Td>${ t.title }</Td>
+													<td><c:if test="${t.statusId == 1}">
 															InProgress
-														</c:if>
-
-													<c:if test="${m.statusId == 2}">
+														</c:if> <c:if test="${t.statusId == 2}">
 															Hold
-														</c:if>
-
-													<c:if test="${m.statusId == 3}">
+														</c:if> <c:if test="${t.statusId == 3}">
 															Completed
-														</c:if>
-
-													<c:if test="${m.statusId == 4}">
+														</c:if> <c:if test="${t.statusId == 4}">
 															Pipeline
-														</c:if>
-
-													<c:if test="${m.statusId == 5}">
+														</c:if> <c:if test="${t.statusId == 5}">
 															Due
-														</c:if>
-</td>
-													<td>${m.estimatedHours }</td>
-													<td>${m.totalUtilizedHours }</td>
-													<td><a href="viewmodule?moduleId=${m.moduleId}">View</a>|
-														<a href="deletemodule?moduleId=${m.moduleId}">Delete</a>|
-														<a href="listtask?moduleId=${m.moduleId}">Task</a></td>
+														</c:if></td>
+
+
+													<td>${t.estimatedMinutes }</td>
+													<td>${t.totalUtilizedMinutes }</td>
+ 													<td><a href="taskusers?taskId=${t.taskId}">Users</a>|
+
+														<a href="devviewtask?taskId=${t.taskId}">View</a> |<a
+														href="devlogefforts?taskId=${t.taskId}">Log Efforts</a></td>
+
 												</tr>
 											</c:forEach>
 										</tbody>
@@ -185,11 +179,5 @@
 	<script src="dist/js/pages/dashboard.js"></script>
 	<!-- AdminLTE for demo purposes -->
 	<script src="dist/js/demo.js"></script>
-
-	<script type="text/javascript">
-		<c:if test="${param.err}">
-		alert("Module can't delete ! It has Task");
-		</c:if>
-	</script>
 </body>
 </html>

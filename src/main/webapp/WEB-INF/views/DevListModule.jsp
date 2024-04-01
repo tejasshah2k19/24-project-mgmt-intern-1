@@ -10,7 +10,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>PMT | List Modules</title>
+<title>PMT | Developer List Modules</title>
 <!-- Tell the browser to be responsive to screen width -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Font Awesome -->
@@ -44,9 +44,9 @@
 <body class="hold-transition sidebar-mini layout-fixed">
 	<div class="wrapper">
 
-		<jsp:include page="AdminHeader.jsp"></jsp:include>
+		<jsp:include page="DeveloperHeader.jsp"></jsp:include>
 
-		<jsp:include page="AdminSidebar.jsp"></jsp:include>
+		<jsp:include page="DeveloperSidebar.jsp"></jsp:include>
 
 
 
@@ -62,8 +62,8 @@
 						<!-- /.col -->
 						<div class="col-sm-6">
 							<ol class="breadcrumb float-sm-right">
-								<li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-								<li class="breadcrumb-item active">List Module</li>
+								<li class="breadcrumb-item"><a href="developerdashboard">Home</a></li>
+								<li class="breadcrumb-item active">Project Module</li>
 							</ol>
 						</div>
 						<!-- /.col -->
@@ -79,10 +79,6 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="card">
-								<div class="card-header">
-									<a href="newmodule?projectId=${project.projectId}">Add New
-										Module</a>
-								</div>
 
 								<div class="card-body table-responsive p-0">
 									<table class="table table-hover text-nowrap">
@@ -90,7 +86,6 @@
 											<tr>
 												<th>Title</th>
 												<th>Status</th>
-												<th>EstimatedHours</th>
 												<th>UtilizedHours</th>
 												<th>Action</th>
 											</tr>
@@ -100,7 +95,8 @@
 											<c:forEach items="${modules}" var="m">
 												<tr>
 													<Td>${ m.moduleName }</Td>
-	<td>
+
+ 	<td>
 													<c:if test="${m.statusId == 1}">
 															InProgress
 														</c:if>
@@ -121,11 +117,11 @@
 															Due
 														</c:if>
 </td>
-													<td>${m.estimatedHours }</td>
+
 													<td>${m.totalUtilizedHours }</td>
-													<td><a href="viewmodule?moduleId=${m.moduleId}">View</a>|
-														<a href="deletemodule?moduleId=${m.moduleId}">Delete</a>|
-														<a href="listtask?moduleId=${m.moduleId}">Task</a></td>
+													<td><a href="devlisttask?moduleId=${m.moduleId}">Task</a>
+													
+													</td>
 												</tr>
 											</c:forEach>
 										</tbody>

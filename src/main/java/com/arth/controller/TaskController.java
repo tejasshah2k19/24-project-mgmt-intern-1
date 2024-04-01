@@ -35,25 +35,23 @@ public class TaskController {
 
 	@GetMapping("/newtask")
 	public String newTask(@RequestParam("moduleId") Integer moduleId, Model model) {
-		
+
 		ModuleEntity module = moduleRepo.findById(moduleId).get();
 		ProjectEntity project = projectRepo.findById(module.getProjectId()).get();
 
- 
-
 		List<ProjectStatusEntity> projectStatusList = projectStatuRepo.findAll();
 		model.addAttribute("projectStatusList", projectStatusList);
-		
-		model.addAttribute("module",module);
-		model.addAttribute("project",project); 
-		
+
+		model.addAttribute("module", module);
+		model.addAttribute("project", project);
+
 		return "NewTask";
 	}
 
 	@PostMapping("/savetask")
 	public String svaeTask(TaskEntity task) {
 		taskRepo.save(task);
-		return "redirect:/listtask?moduleId="+task.getModuleId();
+		return "redirect:/listtask?moduleId=" + task.getModuleId();
 	}
 
 	@GetMapping("/listtask")
@@ -64,8 +62,8 @@ public class TaskController {
 		ProjectEntity project = projectRepo.findById(module.getProjectId()).get();
 
 		model.addAttribute("task", tasks);
-		model.addAttribute("module",module);
-		model.addAttribute("project",project);
+		model.addAttribute("module", module);
+		model.addAttribute("project", project);
 		return "ListTask";
 	}
 
@@ -73,8 +71,20 @@ public class TaskController {
 	public String deleteTask(@RequestParam("taskId") Integer taskId) {
 		int moduleId = taskRepo.findById(taskId).get().getModuleId();
 		taskRepo.deleteById(taskId);
-		return "redirect:/listtask?moduleId="+moduleId;
+		return "redirect:/listtask?moduleId=" + moduleId;
 	}
-	
- 
+
+	@GetMapping("/viewtask")
+	public String viewTask(@RequestParam("taskId") Integer taskId, Model model) {
+		TaskEntity task = taskRepo.findById(taskId).get();
+		ModuleEntity module = moduleRepo.findById(task.getModuleId()).get();
+		ProjectEntity project = projectRepo.findById(task.getProjectId()).get();
+
+		model.addAttribute("task", task);
+		model.addAttribute("project", project);
+		model.addAttribute("module", module);
+
+		return "ViewTask";
+	}
+
 }

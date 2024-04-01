@@ -39,9 +39,9 @@
 
 
  
-	<%@include file="AdminHeader.jsp" %>
+	<%@include file="DeveloperHeader.jsp" %>
 
-		<jsp:include page="AdminSidebar.jsp"></jsp:include>
+		<jsp:include page="DeveloperSidebar.jsp"></jsp:include>
 		
 		
 		
@@ -57,8 +57,7 @@
 						<!-- /.col -->
 						<div class="col-sm-6">
 							<ol class="breadcrumb float-sm-right">
-								<li class="breadcrumb-item"><a href="#">Home</a></li>
-								<li class="breadcrumb-item active">Dashboard v1</li>
+								<li class="breadcrumb-item"><a href="developerdashboard">Home</a></li>
 							</ol>
 						</div>
 						<!-- /.col -->

@@ -103,7 +103,7 @@ public class SessionController {
 				return "redirect:/pmdashboard";
 			} else if (loggedInUser.getRoleId() == 3) {
 				// developer
-				return "developerdashboard";
+				return "redirect:/developerdashboard";
 			}
 		}
 		return "Login";

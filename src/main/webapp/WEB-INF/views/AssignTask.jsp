@@ -57,7 +57,7 @@
 				<div class="container-fluid">
 					<div class="row mb-2">
 						<div class="col-md-6">
-							<h1 class="m-0 text-dark">Assign Task</h1>
+							<h1 class="m-0 text-dark">Assign User To Task</h1>
 						</div>
 						<!-- /.col -->
 						<div class="col-sm-6">
@@ -79,6 +79,13 @@
 					<div class="row">
 						<div class="col-md-6">
 
+							<c:if test="${msg == 'alreadyAssigned'}">
+								<div class="alert alert-warning">User is already assigned to this task.</div>
+							</c:if>
+							<c:if test="${msg == 'invalid'}">
+								<div class="alert alert-danger">Please select a valid user.</div>
+							</c:if>
+
 							<div class="card card-info">
 								<div class="card-header">
 									<h3 class="card-title">Task Allocation</h3>
@@ -88,7 +95,28 @@
 								<form class="form-horizontal" action="assigntask" method="post">
 									<div class="card-body">
 
-									 
+										<input type="hidden" name="taskId" value="${task.taskId}">
+
+										<div class="form-group row">
+											<label class="col-sm-2 col-form-label">Project</label>
+											<div class="col-sm-10">
+												<input type="text" class="form-control" readonly="readonly" value="${project.title}">
+											</div>
+										</div>
+
+										<div class="form-group row">
+											<label class="col-sm-2 col-form-label">Module</label>
+											<div class="col-sm-10">
+												<input type="text" class="form-control" readonly="readonly" value="${module.moduleName}">
+											</div>
+										</div>
+
+										<div class="form-group row">
+											<label class="col-sm-2 col-form-label">Task</label>
+											<div class="col-sm-10">
+												<input type="text" class="form-control" readonly="readonly" value="${task.title}">
+											</div>
+										</div>
 										
 										<div class="form-group row">
 											<label for="inputEmail3" class="col-sm-2 col-form-label">User</label>
@@ -99,6 +127,9 @@
 														<option value="${u.userId}">${u.firstName} : ${u.email}</option>
 													</c:forEach>
 												</select>
+												<c:if test="${empty users}">
+													<small class="text-muted">All users are already mapped to this task.</small>
+												</c:if>
 											</div>
 										</div>
 
@@ -110,7 +141,7 @@
 									<!-- /.card-body -->
 									<div class="card-footer">
 										<button type="submit" class="btn btn-info">Assign</button>
-										<a href="listprojects" class="btn btn-default float-right">Cancel</a>
+										<a href="taskusers?taskId=${task.taskId}" class="btn btn-default float-right">Cancel</a>
 
 									</div>
 									<!-- /.card-footer -->

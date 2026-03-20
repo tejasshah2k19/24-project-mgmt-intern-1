@@ -100,27 +100,7 @@
 													<Td>${ user.firstName }</Td>
 													<td>${ user.lastName }</td>
 													<td>${ user.email }</td>
-													<td>
-														<c:if test="${user.roleId ==1}">
-															Admin
-														</c:if>	
-														
-														
-														<c:if test="${user.roleId ==2}">
-															ProjectManager
-														</c:if>		
-														
-														
-														<c:if test="${user.roleId ==3}">
-															Developer
-														</c:if>	
-														
-														
-														<c:if test="${user.roleId ==4}">
-															Tester
-														</c:if>	
-														
-													</td>
+													<td>${ user.role }</td>
 													<td>Delete</td>
 												</tr>
 											</c:forEach>

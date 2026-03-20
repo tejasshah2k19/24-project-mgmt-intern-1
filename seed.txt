@@ -1,24 +1,156 @@
+-- Run this on database: projectmgmt
+-- BCrypt credentials:
+-- ADMIN -> admin@pmt.local / Admin@123
+-- PMs   -> priyashah@pmt.local or arjunmehta@pmt.local / Pm@123
+-- DEVs  -> nikhilverma@pmt.local (and other dev users) / Dev@123
+-- TESTER-> meera.singh@pmt.local (and other tester users) / Tester@123
 
+USE projectmgmt;
 
+SET FOREIGN_KEY_CHECKS = 0;
 
-insert into roles (role_name) values ('Admin');
-insert into roles (role_name) values ('ProjectManager');
-insert into roles (role_name) values ('Developer');
-insert into roles (role_name) values ('Tester');
+DELETE FROM taskuser;
+DELETE FROM projectuser;
+DELETE FROM task;
+DELETE FROM modules;
+DELETE FROM projects;
+DELETE FROM project_status;
+DELETE FROM users;
 
-insert into project_status (status) values ('InProgress');
-insert into project_status (status) values ('Hold');
-insert into project_status (status) values ('Completed');
-insert into project_status (status) values ('NotStarted');
-insert into project_status (status) values ('Due');
+SET FOREIGN_KEY_CHECKS = 1;
 
+INSERT INTO project_status (project_status_id, status) VALUES
+(1, 'inprogress'),
+(2, 'hold'),
+(3, 'completed'),
+(4, 'notstarted'),
+(5, 'due');
 
-insert 
-    into
-        users
-        (address, city, contact_num, date_of_birth, email, first_name, gender, last_name, otp, password, role_id, state) 
-    values
-        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-        
-        
- 
+INSERT INTO users (
+    user_id, first_name, last_name, email, password, gender, contact_num,
+    date_of_birth, address, city, state, otp, role
+) VALUES
+(1, 'System', 'Admin', 'admin@pmt.local', '$2a$10$HdlpVFOA1RjbgK0gnfKCb.HxwbBCpGqj5374h96b4IAwipeCxiROy', 'male', '9876543201', '1990-01-15', '1 Admin Square, Navrangpura', 'ahmedabad', 'gj', -1, 'ADMIN'),
+(2, 'Priya', 'Shah', 'priyashah@pmt.local', '$2a$10$RWUklXAJKS02hvEKlhaDvezZMy8jYqhcDOjo7AUe9AHFErsku0/Lq', 'female', '9876543202', '1992-06-09', '22 Riverfront Residency', 'ahmedabad', 'gj', -1, 'PROJECT_MGR'),
+(3, 'Arjun', 'Mehta', 'arjunmehta@pmt.local', '$2a$10$RWUklXAJKS02hvEKlhaDvezZMy8jYqhcDOjo7AUe9AHFErsku0/Lq', 'male', '9876543203', '1989-11-28', '18 Skyline Tower', 'mumbai', 'mh', -1, 'PROJECT_MGR'),
+(4, 'Nikhil', 'Verma', 'nikhilverma@pmt.local', '$2a$10$thdYqE3P.CZt/Il.a3gRtONaUppspiwA4hWFWz5/uoOqWCFT1PGR6', 'male', '9876543204', '1997-03-12', '304 Tech Park Homes', 'surat', 'gj', -1, 'DEVELOPER'),
+(5, 'Aisha', 'Khan', 'aishakhan@pmt.local', '$2a$10$thdYqE3P.CZt/Il.a3gRtONaUppspiwA4hWFWz5/uoOqWCFT1PGR6', 'female', '9876543205', '1996-08-22', '12 Green View', 'mumbai', 'mh', -1, 'DEVELOPER'),
+(6, 'Rohan', 'Patel', 'rohanpatel@pmt.local', '$2a$10$thdYqE3P.CZt/Il.a3gRtONaUppspiwA4hWFWz5/uoOqWCFT1PGR6', 'male', '9876543206', '1995-12-30', '89 Silver Heights', 'ahmedabad', 'gj', -1, 'DEVELOPER'),
+(7, 'Meera', 'Singh', 'meera.singh@pmt.local', '$2a$10$/oyFcls2yydw0G8qqR6TyeJ8sREmjEAmFMfwLIxk1G25ka8Abs3AO', 'female', '9876543207', '1998-02-18', '7 Lakewood Enclave', 'surat', 'gj', -1, 'TESTER'),
+(8, 'Kabir', 'Joshi', 'kabir.joshi@pmt.local', '$2a$10$/oyFcls2yydw0G8qqR6TyeJ8sREmjEAmFMfwLIxk1G25ka8Abs3AO', 'male', '9876543208', '1994-05-05', '41 Maple Residency', 'mumbai', 'mh', -1, 'TESTER'),
+(9, 'Sneha', 'Iyer', 'sneha.iyer@pmt.local', '$2a$10$thdYqE3P.CZt/Il.a3gRtONaUppspiwA4hWFWz5/uoOqWCFT1PGR6', 'female', '9876543209', '1997-09-14', '56 Sunrise Apartments', 'ahmedabad', 'gj', -1, 'DEVELOPER'),
+(10, 'Fatima', 'Shaikh', 'fatima.shaikh@pmt.local', '$2a$10$/oyFcls2yydw0G8qqR6TyeJ8sREmjEAmFMfwLIxk1G25ka8Abs3AO', 'female', '9876543210', '1996-01-27', '14 Bayview Homes', 'mumbai', 'mh', -1, 'TESTER');
+
+INSERT INTO projects (
+    project_id, title, description, project_status_id, docurl, estimated_hours,
+    total_utilized_hours, project_start_date, project_completion_date, actual_completion_date
+) VALUES
+(1, 'Retail Inventory Revamp', 'Revamp stock tracking, supplier sync, and purchase planning for retail operations.', 1, 'https://docs.pmt.local/projects/retail-inventory', 420, 198, '2026-01-10', '2026-05-30', NULL),
+(2, 'HR Onboarding Portal', 'Streamline candidate onboarding workflows, document generation, and approvals.', 5, 'https://docs.pmt.local/projects/hr-onboarding', 260, 245, '2026-02-01', '2026-04-10', NULL),
+(3, 'Mobile Banking Upgrade', 'Enhance security and customer experience for mobile banking users.', 2, 'https://docs.pmt.local/projects/mobile-banking', 600, 310, '2025-11-15', '2026-07-20', NULL),
+(4, 'CRM Migration', 'Migrate customer and activity data from legacy CRM to unified cloud CRM.', 3, 'https://docs.pmt.local/projects/crm-migration', 340, 352, '2025-08-01', '2025-12-20', '2025-12-24'),
+(5, 'QA Automation Platform', 'Build reusable QA automation framework for UI, API, and regression coverage.', 4, 'https://docs.pmt.local/projects/qa-automation', 300, 20, '2026-03-25', '2026-08-15', NULL),
+(6, 'Field Service App', 'Enable technicians to manage work orders, checklists, and offline sync.', 1, 'https://docs.pmt.local/projects/field-service', 480, 170, '2026-01-20', '2026-06-30', NULL);
+
+INSERT INTO modules (
+    module_id, module_name, project_id, status_id, description, documenturl,
+    estimated_hours, total_utilized_hours
+) VALUES
+(1, 'Catalog Core', 1, 1, 'Product catalog and SKU metadata management.', 'https://docs.pmt.local/modules/catalog-core', 90, 46),
+(2, 'Supply Chain Integration', 1, 2, 'Supplier onboarding and purchase order exchange.', 'https://docs.pmt.local/modules/supply-chain', 110, 52),
+(3, 'Candidate Intake', 2, 1, 'Create and track onboarding requests for new joiners.', 'https://docs.pmt.local/modules/candidate-intake', 60, 54),
+(4, 'Employee Self-Service', 2, 5, 'Employee dashboard for joining tasks and forms.', 'https://docs.pmt.local/modules/employee-self-service', 75, 71),
+(5, 'KYC and Compliance', 3, 2, 'Digital KYC flow and compliance checks.', 'https://docs.pmt.local/modules/kyc-compliance', 130, 66),
+(6, 'Transaction Safety', 3, 1, 'Fraud checks, limits, and notifications.', 'https://docs.pmt.local/modules/transaction-safety', 150, 82),
+(7, 'Data Migration', 4, 3, 'Data extraction, mapping, and verification from old CRM.', 'https://docs.pmt.local/modules/data-migration', 120, 125),
+(8, 'Customer Timeline', 4, 3, 'Unified customer activity timeline and interactions.', 'https://docs.pmt.local/modules/customer-timeline', 80, 85),
+(9, 'Automation Engine', 5, 4, 'Core execution and orchestration for automation suites.', 'https://docs.pmt.local/modules/automation-engine', 95, 5),
+(10, 'CI Test Reporting', 5, 4, 'Publish automated suite results and analytics in CI.', 'https://docs.pmt.local/modules/ci-reporting', 70, 3),
+(11, 'Work Order Management', 6, 1, 'Create, assign, and prioritize field work orders.', 'https://docs.pmt.local/modules/work-order-management', 140, 57),
+(12, 'Offline Mobility', 6, 5, 'Offline sync and geo-fence support for technicians.', 'https://docs.pmt.local/modules/offline-mobility', 100, 44);
+
+INSERT INTO task (
+    task_id, title, module_id, project_id, status_id, estimated_minutes,
+    total_utilized_minutes, documenturl, description
+) VALUES
+(1, 'Product Catalog API', 1, 1, 1, 300, 210, 'https://docs.pmt.local/tasks/1', 'Build catalog APIs with search and filter support.'),
+(2, 'Stock Sync Scheduler', 1, 1, 5, 240, 260, 'https://docs.pmt.local/tasks/2', 'Implement stock sync jobs and retries with alerting.'),
+(3, 'Purchase Order Workflow', 2, 1, 1, 360, 190, 'https://docs.pmt.local/tasks/3', 'Develop purchase order lifecycle workflow.'),
+(4, 'Supplier Portal UI', 2, 1, 2, 300, 110, 'https://docs.pmt.local/tasks/4', 'Supplier-facing UI for order confirmations and updates.'),
+(5, 'Candidate Intake Form', 3, 2, 1, 220, 180, 'https://docs.pmt.local/tasks/5', 'Build multi-step intake form with validation.'),
+(6, 'Offer Letter Generator', 3, 2, 4, 180, 40, 'https://docs.pmt.local/tasks/6', 'Generate offer letters from templates and data.'),
+(7, 'Employee Dashboard', 4, 2, 5, 260, 255, 'https://docs.pmt.local/tasks/7', 'Create onboarding dashboard for new employees.'),
+(8, 'Attendance Export Job', 4, 2, 1, 210, 130, 'https://docs.pmt.local/tasks/8', 'Automate attendance export integration.'),
+(9, 'KYC Verification Service', 5, 3, 2, 320, 150, 'https://docs.pmt.local/tasks/9', 'Integrate third-party KYC provider APIs.'),
+(10, 'Transaction Limits Screen', 5, 3, 4, 200, 20, 'https://docs.pmt.local/tasks/10', 'Create user controls for transaction thresholds.'),
+(11, 'Fraud Rules Engine', 6, 3, 1, 420, 300, 'https://docs.pmt.local/tasks/11', 'Implement configurable fraud rule evaluation engine.'),
+(12, 'Notification Service', 6, 3, 1, 180, 120, 'https://docs.pmt.local/tasks/12', 'Send alerts via SMS, email, and in-app notifications.'),
+(13, 'Legacy Data Mapping', 7, 4, 3, 260, 280, 'https://docs.pmt.local/tasks/13', 'Map old CRM entities to new data model.'),
+(14, 'Contact Merge Utility', 7, 4, 3, 180, 165, 'https://docs.pmt.local/tasks/14', 'Merge duplicate contacts and preserve metadata.'),
+(15, 'Role Migration Script', 8, 4, 3, 140, 150, 'https://docs.pmt.local/tasks/15', 'Migrate user roles and permissions safely.'),
+(16, 'Activity Timeline Widget', 8, 4, 3, 240, 245, 'https://docs.pmt.local/tasks/16', 'Build timeline widget for interaction history.'),
+(17, 'Test Data Factory', 9, 5, 4, 220, 20, 'https://docs.pmt.local/tasks/17', 'Generate stable synthetic datasets for test suites.'),
+(18, 'Parallel Test Runner', 9, 5, 4, 260, 15, 'https://docs.pmt.local/tasks/18', 'Add controlled parallel execution for suites.'),
+(19, 'API Mock Server', 10, 5, 4, 200, 10, 'https://docs.pmt.local/tasks/19', 'Create mock service for external dependencies.'),
+(20, 'CI Pipeline Reporter', 10, 5, 4, 190, 8, 'https://docs.pmt.local/tasks/20', 'Publish test health summary in CI/CD.'),
+(21, 'Work Order Planner', 11, 6, 1, 360, 250, 'https://docs.pmt.local/tasks/21', 'Planner for task assignment and SLA priority.'),
+(22, 'Offline Sync Adapter', 11, 6, 5, 330, 340, 'https://docs.pmt.local/tasks/22', 'Sync local updates with conflict resolution.'),
+(23, 'Technician Checklists', 12, 6, 1, 240, 170, 'https://docs.pmt.local/tasks/23', 'Configurable checklists for field operations.'),
+(24, 'Geo-fence Alerts', 12, 6, 2, 210, 90, 'https://docs.pmt.local/tasks/24', 'Trigger alerts on geo-fence entry and exit.');
+
+INSERT INTO projectuser (project_user_id, user_id, project_id, assign_status) VALUES
+(1, 2, 1, 1),
+(2, 4, 1, 1),
+(3, 5, 1, 3),
+(4, 7, 1, 1),
+(5, 2, 2, 1),
+(6, 6, 2, 1),
+(7, 8, 2, 1),
+(8, 9, 2, 2),
+(9, 3, 3, 1),
+(10, 4, 3, 3),
+(11, 10, 3, 1),
+(12, 3, 4, 1),
+(13, 5, 4, 1),
+(14, 7, 4, 2),
+(15, 2, 5, 1),
+(16, 9, 5, 1),
+(17, 8, 5, 3),
+(18, 3, 6, 1),
+(19, 6, 6, 1),
+(20, 10, 6, 1);
+
+INSERT INTO taskuser (task_user_id, user_id, task_id, assign_status) VALUES
+(1, 4, 1, 1),
+(2, 6, 2, 1),
+(3, 5, 3, 1),
+(4, 7, 4, 3),
+(5, 6, 5, 1),
+(6, 8, 6, 1),
+(7, 6, 7, 1),
+(8, 8, 8, 1),
+(9, 4, 9, 3),
+(10, 5, 10, 2),
+(11, 4, 11, 1),
+(12, 10, 12, 1),
+(13, 5, 13, 1),
+(14, 7, 14, 2),
+(15, 9, 15, 1),
+(16, 8, 16, 1),
+(17, 9, 17, 1),
+(18, 8, 18, 3),
+(19, 9, 19, 1),
+(20, 7, 20, 1),
+(21, 6, 21, 1),
+(22, 6, 22, 1),
+(23, 10, 23, 1),
+(24, 10, 24, 3);
+
+-- Optional: reset next IDs if needed
+ALTER TABLE users AUTO_INCREMENT = 11;
+ALTER TABLE project_status AUTO_INCREMENT = 6;
+ALTER TABLE projects AUTO_INCREMENT = 7;
+ALTER TABLE modules AUTO_INCREMENT = 13;
+ALTER TABLE task AUTO_INCREMENT = 25;
+ALTER TABLE projectuser AUTO_INCREMENT = 21;
+ALTER TABLE taskuser AUTO_INCREMENT = 25;

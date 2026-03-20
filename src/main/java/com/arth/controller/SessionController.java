@@ -54,7 +54,7 @@ public class SessionController {
 			return "Signup";
 		}
 
-		user.setRoleId(3); // developer
+		user.setRole("DEVELOPER");
 		// read plain text password
 		String plainPassword = user.getPassword();
 
@@ -92,16 +92,19 @@ public class SessionController {
 			if (answer == false) {
 				model.addAttribute("error", "Invalid Credentials");
 				return "Login";
-			} else if (loggedInUser.getRoleId() == null) {
+			} else if (loggedInUser.getRole() == null || loggedInUser.getRole().isBlank()) {
 				model.addAttribute("error", "You might be a HACKER");
 				return "Login";
-			} else if (loggedInUser.getRoleId() == 1) {
+			}
+
+			String role = loggedInUser.getRole().trim().toUpperCase();
+			if ("ADMIN".equals(role)) {
 				// admin
 				return "redirect:/admindashboard";
-			} else if (loggedInUser.getRoleId() == 2) {
+			} else if ("PROJECT_MGR".equals(role)) {
 				// project manager
 				return "redirect:/pmdashboard";
-			} else if (loggedInUser.getRoleId() == 3) {
+			} else if ("DEVELOPER".equals(role) || "TESTER".equals(role)) {
 				// developer
 				return "redirect:/developerdashboard";
 			}

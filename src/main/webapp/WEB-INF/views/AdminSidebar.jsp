@@ -39,13 +39,7 @@
 							 
 						 
 				 
-						<li class="nav-header">EXAMPLES</li>
-						<li class="nav-item"><a href="listrole"
-							class="nav-link"> <i class="nav-icon far fa-calendar-alt"></i>
-								<p>
-									Roles  
-								</p>
-						</a></li>
+						<li class="nav-header">Admin Navigation </li>
 						<li class="nav-item"><a href="listuser"
 							class="nav-link"> <i class="nav-icon far fa-image"></i>
 								<p>List User</p>

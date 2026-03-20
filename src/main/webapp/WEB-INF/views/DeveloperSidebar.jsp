@@ -28,7 +28,7 @@
 				<!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
 
-				<li class="nav-item"><a href="admindashboard" class="nav-link">
+				<li class="nav-item"><a href="developerdashboard" class="nav-link">
 						<i class="nav-icon fas fa-th"></i>
 						<p>Dashboard</p>
 				</a></li>
@@ -38,11 +38,16 @@
 
 
 
-				<li class="nav-header">Navigation</li>
+				<li class="nav-header">Dev Navigation</li>
 
 				<li class="nav-item"><a href="myprojects" class="nav-link">
 						<i class="nav-icon far fa-image"></i>
 						<p>My Projects</p>
+				</a></li>
+
+				<li class="nav-item"><a href="mytasks" class="nav-link"> <i
+						class="nav-icon far fa-image"></i>
+						<p>My Tasks</p>
 				</a></li>
 
  

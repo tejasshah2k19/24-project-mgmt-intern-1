@@ -88,7 +88,7 @@
 								<div class="icon">
 									<i class="ion ion-bag"></i>
 								</div>
-								<a href="/projects?status=notstarted" class="small-box-footer">More
+								<a href="pmlistprojects?status=notstarted" class="small-box-footer">More
 									info <i class="fas fa-arrow-circle-right"></i>
 								</a>
 							</div>
@@ -105,7 +105,7 @@
 								<div class="icon">
 									<i class="ion ion-stats-bars"></i>
 								</div>
-								<a href="/projects?status=inprogress" class="small-box-footer">More
+								<a href="pmlistprojects?status=inprogress" class="small-box-footer">More
 									info <i class="fas fa-arrow-circle-right"></i>
 								</a>
 							</div>
@@ -122,7 +122,7 @@
 								<div class="icon">
 									<i class="ion ion-person-add"></i>
 								</div>
-								<a href="/listuser" class="small-box-footer"  >More info <i
+								<a href="pmlistuser" class="small-box-footer"  >More info <i
 									class="fas fa-arrow-circle-right"></i></a>
 							</div>
 						</div>
@@ -138,7 +138,7 @@
 								<div class="icon">
 									<i class="ion ion-pie-graph"></i>
 								</div>
-								<a href="/projects?status=due" class="small-box-footer">More
+								<a href="pmlistprojects?status=due" class="small-box-footer">More
 									info <i class="fas fa-arrow-circle-right"></i>
 								</a>
 							</div>

@@ -102,7 +102,7 @@
 													<Td>${ user.firstName }</Td>
 													<td>${ user.lastName }</td>
 													<td>${ user.email }</td>
-													<td>${user.roleId }</td>
+													<td>${user.role}</td>
 													<td><a
 														href="projectrevoke?userId=${user.userId}&projectId=${project.projectId}&status=2">
 															Revoke</a> | <a
@@ -148,7 +148,7 @@
 													<Td>${ user.firstName }</Td>
 													<td>${ user.lastName }</td>
 													<td>${ user.email }</td>
-													<td>${user.roleId }</td>
+													<td>${user.role}</td>
 													<td><a
 														href="projectrevoke?userId=${user.userId}&projectId=${project.projectId}&status=1">
 															Re-Assign</a> | <a
@@ -193,7 +193,7 @@
 													<Td>${ user.firstName }</Td>
 													<td>${ user.lastName }</td>
 													<td>${ user.email }</td>
-													<td>${user.roleId }</td>
+													<td>${user.role}</td>
 													<td><a
 														href="projectrevoke?userId=${user.userId}&projectId=${project.projectId}&status=1">
 															Re-Assign</a> | <a

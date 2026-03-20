@@ -115,7 +115,7 @@
 
 													<td>${t.estimatedMinutes }</td>
 													<td>${t.totalUtilizedMinutes }</td>
- 													<td><a href="taskusers?taskId=${t.taskId}">Users</a>|
+ 													<td><a href="devtaskuser?taskId=${t.taskId}">Users</a>|
 
 														<a href="devviewtask?taskId=${t.taskId}">View</a> |<a
 														href="devlogefforts?taskId=${t.taskId}">Log Efforts</a></td>

@@ -1,35 +1,26 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>PMT | Dashboard</title>
-<!-- Tell the browser to be responsive to screen width -->
+<title>PMT | Developer Dashboard</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- Font Awesome -->
 <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
-<!-- Ionicons -->
 <link rel="stylesheet"
 	href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-<!-- Tempusdominus Bbootstrap 4 -->
 <link rel="stylesheet"
 	href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
-<!-- iCheck -->
-<link rel="stylesheet"
-	href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-<!-- JQVMap -->
+<link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
 <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
-<!-- Theme style -->
 <link rel="stylesheet" href="dist/css/adminlte.min.css">
-<!-- overlayScrollbars -->
 <link rel="stylesheet"
 	href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
-<!-- Daterange picker -->
-<link rel="stylesheet"
-	href="plugins/daterangepicker/daterangepicker.css">
-<!-- summernote -->
+<link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
 <link rel="stylesheet" href="plugins/summernote/summernote-bs4.css">
-<!-- Google Font: Source Sans Pro -->
 <link
 	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700"
 	rel="stylesheet">
@@ -37,167 +28,184 @@
 <body class="hold-transition sidebar-mini layout-fixed">
 	<div class="wrapper">
 
-
- 
-	<%@include file="DeveloperHeader.jsp" %>
-
+		<%@include file="DeveloperHeader.jsp"%>
 		<jsp:include page="DeveloperSidebar.jsp"></jsp:include>
-		
-		
-		
-		<!-- Content Wrapper. Contains page content -->
+
 		<div class="content-wrapper">
-			<!-- Content Header (Page header) -->
 			<div class="content-header">
 				<div class="container-fluid">
 					<div class="row mb-2">
 						<div class="col-sm-6">
-							<h1 class="m-0 text-dark">Dashboard</h1>
+							<h1 class="m-0 text-dark">Developer Dashboard</h1>
 						</div>
-						<!-- /.col -->
 						<div class="col-sm-6">
 							<ol class="breadcrumb float-sm-right">
 								<li class="breadcrumb-item"><a href="developerdashboard">Home</a></li>
 							</ol>
 						</div>
-						<!-- /.col -->
 					</div>
-					<!-- /.row -->
 				</div>
-				<!-- /.container-fluid -->
 			</div>
-			<!-- /.content-header -->
 
-			<!-- Main content -->
 			<section class="content">
 				<div class="container-fluid">
-					<!-- Small boxes (Stat box) -->
 					<div class="row">
 						<div class="col-lg-3 col-6">
-							<!-- small box -->
 							<div class="small-box bg-info">
 								<div class="inner">
-									<h3>150</h3>
-
-									<p>New Orders</p>
+									<h3>${projectCount}</h3>
+									<p>My Projects</p>
 								</div>
 								<div class="icon">
-									<i class="ion ion-bag"></i>
+									<i class="ion ion-briefcase"></i>
 								</div>
-								<a href="#" class="small-box-footer">More info <i
+								<a href="myprojects" class="small-box-footer">Open <i
 									class="fas fa-arrow-circle-right"></i></a>
 							</div>
 						</div>
-						<!-- ./col -->
+
 						<div class="col-lg-3 col-6">
-							<!-- small box -->
 							<div class="small-box bg-success">
 								<div class="inner">
-									<h3>
-										53<sup style="font-size: 20px">%</sup>
-									</h3>
-
-									<p>Bounce Rate</p>
+									<h3>${moduleCount}</h3>
+									<p>My Modules</p>
 								</div>
 								<div class="icon">
-									<i class="ion ion-stats-bars"></i>
+									<i class="ion ion-cube"></i>
 								</div>
-								<a href="#" class="small-box-footer">More info <i
+								<a href="mymodules" class="small-box-footer">Open <i
 									class="fas fa-arrow-circle-right"></i></a>
 							</div>
 						</div>
-						<!-- ./col -->
+
 						<div class="col-lg-3 col-6">
-							<!-- small box -->
 							<div class="small-box bg-warning">
 								<div class="inner">
-									<h3>44</h3>
-
-									<p>User Registrations</p>
+									<h3 style="color: white">${taskCount}</h3>
+									<p style="color: white">My Tasks</p>
 								</div>
 								<div class="icon">
-									<i class="ion ion-person-add"></i>
+									<i class="ion ion-clipboard"></i>
 								</div>
-								<a href="#" class="small-box-footer">More info <i
+								<a href="mytasks" class="small-box-footer">Open <i
 									class="fas fa-arrow-circle-right"></i></a>
 							</div>
 						</div>
-						<!-- ./col -->
+
 						<div class="col-lg-3 col-6">
-							<!-- small box -->
 							<div class="small-box bg-danger">
 								<div class="inner">
-									<h3>65</h3>
-
-									<p>Unique Visitors</p>
+									<h3>${dueProjects}</h3>
+									<p>Due Projects</p>
 								</div>
 								<div class="icon">
-									<i class="ion ion-pie-graph"></i>
+									<i class="ion ion-alert-circled"></i>
 								</div>
-								<a href="#" class="small-box-footer">More info <i
+								<a href="myprojects?status=due" class="small-box-footer">Review <i
 									class="fas fa-arrow-circle-right"></i></a>
 							</div>
 						</div>
-						<!-- ./col -->
 					</div>
-					<!-- /.row -->
-					<!-- Main row -->
-					 
-					 sdfndskfsd
-					 fsdfsdlfdsjflsdf
-					 
-					<!-- /.row (main row) -->
+
+					<div class="row">
+						<section class="col-lg-12 connectedSortable">
+							<div class="card">
+								<div class="card-header">
+									<h3 class="card-title">
+										<i class="fas fa-tasks mr-1"></i> Work Snapshot
+									</h3>
+								</div>
+								<div class="card-body table-responsive p-0">
+									<table class="table table-hover text-nowrap">
+										<thead>
+											<tr>
+												<th>Metric</th>
+												<th>Count</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr><td>InProgress Projects</td><td>${inProgressProjects}</td></tr>
+											<tr><td>InProgress Tasks</td><td>${inProgressTasks}</td></tr>
+											<tr><td>Hold Tasks</td><td>${holdTasks}</td></tr>
+											<tr><td>Pipeline Tasks</td><td>${pipelineTasks}</td></tr>
+											<tr><td>Completed Tasks</td><td>${completedTasks}</td></tr>
+											<tr><td>Due Tasks</td><td>${dueTasks}</td></tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</section>
+					</div>
+
+					<div class="row">
+						<section class="col-lg-12 connectedSortable">
+							<div class="card">
+								<div class="card-header">
+									<h3 class="card-title">
+										<i class="fas fa-chart-bar mr-1"></i> Daily Working Hours (${currentMonthLabel})
+									</h3>
+								</div>
+								<div class="card-body">
+									<canvas id="workHoursChart" height="90"></canvas>
+								</div>
+							</div>
+						</section>
+					</div>
 				</div>
-				<!-- /.container-fluid -->
 			</section>
-			<!-- /.content -->
 		</div>
-		<!-- /.content-wrapper -->
+
 		<jsp:include page="AdminFooter.jsp"></jsp:include>
-
-		<!-- Control Sidebar -->
-		<aside class="control-sidebar control-sidebar-dark">
-			<!-- Control sidebar content goes here -->
-		</aside>
-		<!-- /.control-sidebar -->
+		<aside class="control-sidebar control-sidebar-dark"></aside>
 	</div>
-	<!-- ./wrapper -->
 
-	<!-- jQuery -->
 	<script src="plugins/jquery/jquery.min.js"></script>
-	<!-- jQuery UI 1.11.4 -->
 	<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
-	<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 	<script>
 		$.widget.bridge('uibutton', $.ui.button)
 	</script>
-	<!-- Bootstrap 4 -->
 	<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<!-- ChartJS -->
 	<script src="plugins/chart.js/Chart.min.js"></script>
-	<!-- Sparkline -->
 	<script src="plugins/sparklines/sparkline.js"></script>
-	<!-- JQVMap -->
 	<script src="plugins/jqvmap/jquery.vmap.min.js"></script>
 	<script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
-	<!-- jQuery Knob Chart -->
 	<script src="plugins/jquery-knob/jquery.knob.min.js"></script>
-	<!-- daterangepicker -->
 	<script src="plugins/moment/moment.min.js"></script>
 	<script src="plugins/daterangepicker/daterangepicker.js"></script>
-	<!-- Tempusdominus Bootstrap 4 -->
 	<script
 		src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-	<!-- Summernote -->
 	<script src="plugins/summernote/summernote-bs4.min.js"></script>
-	<!-- overlayScrollbars -->
 	<script
 		src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-	<!-- AdminLTE App -->
 	<script src="dist/js/adminlte.js"></script>
-	<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 	<script src="dist/js/pages/dashboard.js"></script>
-	<!-- AdminLTE for demo purposes -->
 	<script src="dist/js/demo.js"></script>
+	<script>
+		var workHoursCtx = document.getElementById('workHoursChart').getContext('2d');
+		new Chart(workHoursCtx, {
+			type : 'bar',
+			data : {
+				labels : [ ${dayLabels} ],
+				datasets : [ {
+					label : 'Hours',
+					data : [ ${dayHours} ],
+					backgroundColor : 'rgba(54, 162, 235, 0.35)',
+					borderColor : 'rgba(54, 162, 235, 1)',
+					borderWidth : 1
+				} ]
+			},
+			options : {
+				responsive : true,
+				maintainAspectRatio : false,
+				scales : {
+					yAxes : [ {
+						ticks : {
+							beginAtZero : true
+						}
+					} ]
+				}
+			}
+		});
+	</script>
 </body>
 </html>

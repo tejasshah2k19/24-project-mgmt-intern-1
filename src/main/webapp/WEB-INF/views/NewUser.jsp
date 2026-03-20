@@ -198,11 +198,12 @@
 										<div class="form-group row">
 											<label for="inputEmail3" class="col-sm-2 col-form-label">Role</label>
 											<div class="col-sm-10">
-												<select name="roleId" class="form-control">
-													<option value="-1">----Please Select Role----</option>
-													<c:forEach items="${roleList}" var="role">
-														<option value="${role.roleId}">${role.roleName}</option>
-													</c:forEach>
+												<select name="role" class="form-control">
+													<option value="">----Please Select Role----</option>
+													<option value="ADMIN">ADMIN</option>
+													<option value="PROJECT_MGR">PROJECT_MGR</option>
+													<option value="DEVELOPER">DEVELOPER</option>
+													<option value="TESTER">TESTER</option>
 												</select>
 											</div>
 										</div>

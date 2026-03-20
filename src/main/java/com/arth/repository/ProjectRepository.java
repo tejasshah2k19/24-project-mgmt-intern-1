@@ -13,7 +13,7 @@ public interface ProjectRepository extends JpaRepository<ProjectEntity, Integer>
 
 	List<ProjectEntity> findByProjectStatusId(Integer projectStatusId);
 
-	@Query(value ="select * from projects where project_id in ( select project_id from projectuser where user_id = :userId )",nativeQuery = true)
+	@Query(value ="select * from projects where project_id in ( select project_id from projectuser where user_id = :userId and assign_status = 1 )",nativeQuery = true)
 	List<ProjectEntity> myProjects(Integer userId);
 	
 }

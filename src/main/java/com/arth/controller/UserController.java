@@ -9,9 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.arth.entity.RoleEntity;
 import com.arth.entity.UserEntity;
-import com.arth.repository.RoleRepository;
 import com.arth.repository.UserRepository;
 
 @Controller
@@ -21,15 +19,10 @@ public class UserController {
 	UserRepository userRepo;
 
 	@Autowired
-	RoleRepository roleRepo;
-
-	@Autowired
 	BCryptPasswordEncoder bcrypt;
 	
 	@GetMapping("/newuser")
 	public String newUser(Model model) {
-		List<RoleEntity> roleList = roleRepo.findAll();
-		model.addAttribute("roleList", roleList);
 		return "NewUser";
 	}
 

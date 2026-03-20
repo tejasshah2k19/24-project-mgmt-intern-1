@@ -38,19 +38,29 @@
 
 
 
-				<li class="nav-header">Navigation</li>
+				<li class="nav-header">PM Navigation</li>
 
 				<li class="nav-item"><a href="pmlistuser" class="nav-link"> <i
 						class="nav-icon far fa-image"></i>
 						<p>List User</p>
 				</a></li>
 
-				<li class="nav-item"><a href="listprojects" class="nav-link">
+				<li class="nav-item"><a href="pmlistprojects" class="nav-link">
 						<i class="nav-icon far fa-image"></i>
 						<p>List Projects</p>
 				</a></li>
 
-				<li class="nav-item"><a href="assignproject" class="nav-link">
+				<li class="nav-item"><a href="pmmodules" class="nav-link"> <i
+						class="nav-icon far fa-image"></i>
+						<p>Module Management</p>
+				</a></li>
+
+				<li class="nav-item"><a href="pmtasks" class="nav-link"> <i
+						class="nav-icon far fa-image"></i>
+						<p>Task Management</p>
+				</a></li>
+
+				<li class="nav-item"><a href="pmassignproject" class="nav-link">
 						<i class="nav-icon far fa-image"></i>
 						<p>Assign Projects</p>
 				</a></li>

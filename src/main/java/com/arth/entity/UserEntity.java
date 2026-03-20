@@ -28,7 +28,7 @@ public class UserEntity {
 	private String city;
 	private String state;
 	private Integer otp;
-	private Integer roleId;//1->admin , 2->projectManager,3->Developer,4->Tester 
+	private String role;// ADMIN, PROJECT_MGR, DEVELOPER, TESTER
 
 	public Integer getUserId() {
 		return userId;
@@ -126,12 +126,12 @@ public class UserEntity {
 		this.otp = otp;
 	}
 
-	public Integer getRoleId() {
-		return roleId;
+	public String getRole() {
+		return role;
 	}
 
-	public void setRoleId(Integer roleId) {
-		this.roleId = roleId;
+	public void setRole(String role) {
+		this.role = role;
 	}
 
 	public String getConfirmPassword() {
